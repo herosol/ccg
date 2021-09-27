@@ -1,0 +1,545 @@
+/*
+|----------------------------------------------------------------------
+|       Media Queries
+|----------------------------------------------------------------------
+*/
+@media screen and (min-width: 1921px) {
+  .dar-zindex {
+    display: block;
+  }
+  nav.active {
+    z-index: 999;
+  }
+
+  #sBanner:before {
+    background-image: linear-gradient(
+      270deg,
+      rgba(23, 56, 101, 0.82) 35%,
+      rgba(255, 255, 255, 0) 100%
+    );
+  }
+}
+
+@media screen and (min-width: 992px) and (max-width: 1200px) {
+  /*_____ Common _____*/
+  .owl-carousel.owl-theme .owl-nav .owl-prev {
+    left: -15px;
+  }
+  .owl-carousel.owl-theme .owl-nav .owl-next {
+    right: -15px;
+  }
+  header .logo:before {
+    left: -15%;
+  }
+  /*_____ home _____*/
+  #banner-products .item .cntnt {
+    margin-left: 120px;
+  }
+  #purpose h1 {
+    font-size: 40px;
+  }
+  #loan .content {
+    margin-left: 40px;
+  }
+  #loan .flex {
+    justify-content: center;
+  }
+  #loan .loan-box {
+    width: 43%;
+  }
+  #loan .content p {
+    margin: 40px 0;
+  }
+  #loan .content h1 {
+    font-size: 38px;
+  }
+  #sliderBanner .contain-fluid {
+    padding: 0 10px;
+  }
+  /*_____ education _____*/
+
+  .property_type .col {
+    width: calc(100% / 2);
+  }
+
+  /*_____ education _____*/
+  .lenderPro .grid-pera {
+    width: 100%;
+  }
+  .lender_type_2 .headLine span {
+    font-size: 32px;
+  }
+
+  /*_____ about us _____*/
+  .ctrSec .cntnt {
+    margin: 0 20px 0 auto;
+    padding: 20px;
+    background: #fff;
+  }
+  #team .flexRow > .col {
+    width: calc(100% / 3);
+  }
+}
+
+@media screen and (max-width: 991px) {
+  /*_____ Home_____*/
+  #banner-products .item .cntnt {
+    min-width: 600px;
+  }
+  #banner-products .cntnt h1 {
+    margin-bottom: 20px;
+    line-height: 40px;
+    font-size: 40px;
+  }
+  header .logo:before {
+    left: -20%;
+  }
+  #loanProcess .colL,
+  .key_blk .flexRow > .col,
+  .loan_stage .col,
+  .property_type .col,
+  .lenderPro .grid-pera,
+  .lender_type_2 .col:first-child,
+  .lender_type_1 .grid-pera p,
+  .business .flexRow > .col,
+  .counterSec .cntnt,
+  footer .flexRow > .col1,
+  footer .flexRow > .col2,
+  footer .flexRow > .col3,
+  footer .flexRow > .col4,
+  #loan .col,
+  #purpose .inner,
+  #purpose:before,
+  #education .flexRow > .col2,
+  #education .flexRow > .col1 {
+    width: 100%;
+  }
+  .lender_type_3 .content {
+    max-width: 100%;
+  }
+  footer .upside h3 {
+    margin-right: 10px;
+  }
+  #loanProcess .colR,
+  .lender_type_2 .col:last-child,
+  #loan .col1 .image,
+  #purpose .purposeMainImg {
+    display: none;
+  }
+  #loan .content {
+    margin: 0 auto;
+  }
+  #sliderBanner .thumbDot {
+    width: 100%;
+    padding: 0 10px;
+  }
+  #sliderBanner .thumbDot ul {
+    display: flex;
+  }
+  #sliderBanner .thumbDot ul li {
+    width: 50%;
+  }
+  #sliderBanner .thumbDot ul li .thumbnail {
+    flex-direction: column;
+    padding: 10px 10px;
+  }
+  #sliderBanner .hide-bullets li.active:before {
+    top: auto;
+    bottom: 0px;
+    right: 130px;
+    z-index: -1;
+  }
+  #sliderBanner .thumbDot ul li .icon {
+    width: 52px;
+  }
+  #sliderBanner .thumbDot ul li .txt {
+    margin-left: 0px;
+    margin-top: 5px;
+  }
+  #sliderBanner .sliderImg {
+    width: 100%;
+    margin: 40px 0;
+  }
+  #sliderBanner .phone {
+    display: block;
+  }
+  #sliderBanner .desktop {
+    display: none;
+  }
+  /*_____ Common _____*/
+  .owl-carousel.owl-theme .owl-nav .owl-prev {
+    left: -15px;
+  }
+  .owl-carousel.owl-theme .owl-nav .owl-next {
+    right: -15px;
+  }
+
+  footer .social {
+    margin: 30px -8px -3px;
+  }
+  .copyright .inner {
+    flex-flow: column;
+    align-items: center;
+    text-align: center;
+  }
+  .copyright p {
+    margin: 0 0 10px;
+  }
+  /*_____ education _____*/
+  .business .flexRow {
+    flex-flow: column-reverse;
+  }
+  .business .image {
+    padding-bottom: 50%;
+  }
+  .lender_type_1 .grid-pera p {
+    padding: 0px 30px;
+  }
+  .lender_type_2 .headLine span {
+    color: #fff;
+  }
+  .key_blk h1 {
+    font-size: 40px;
+  }
+  .landing-types .col,
+  .property_types .flex .col,
+  #team .flexRow > .col,
+  .qualification_boxes .flexRow > .col {
+    width: calc(100% / 2);
+  }
+  /*_____ about us _____*/
+  .ctrSec .cntnt {
+    margin: 0 20px 0 auto;
+    padding: 20px;
+    background: #fff;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  /*_____ All Site _____*/
+  h1 {
+    font-size: 40px;
+  }
+  h2 {
+    font-size: 32px;
+  }
+  h3 {
+    font-size: 22px;
+  }
+  /*_____ Home _____*/
+  .counterSec .cntnt .col {
+    width: calc(100% / 2);
+    padding: 30px;
+  }
+  .counterSec .flex {
+    justify-content: center;
+  }
+  #banner-products .item .cntnt {
+    margin-top: 85px;
+  }
+  .business h1,
+  #sBanner .content > h1 {
+    font-size: 55px;
+  }
+  .businessProHeading .flexRow .heading {
+    margin-left: 0;
+    margin-top: 0;
+    padding: 0;
+  }
+  .lender_type_1 .grid-pera p {
+    padding: 0px;
+  }
+  .lenderPro .grid-pera {
+    margin-top: 0;
+  }
+  /*_____ education _____*/
+  .qualification_boxes .flexRow > .col {
+    width: 100%;
+  }
+  .qualification_boxes .inner {
+    margin: 0;
+  }
+
+  /*_____ closed loan _____*/
+  .heading__ {
+    width: 53%;
+  }
+  .closed_loan_1 .colR {
+    margin: 0 0 -127px -45px;
+  }
+  .closed_loan_1Pro .loanSlider .flex .colR {
+    margin: 0 -45px -127px 0;
+  }
+}
+
+@media screen and (max-width: 580px) {
+  /*_____ col-xx-? _____*/
+  .col-xx-12 {
+    width: 100%;
+  }
+  .col-xx-11 {
+    width: 91.6667%;
+  }
+  .col-xx-10 {
+    width: 83.3334%;
+  }
+  .col-xx-9 {
+    width: 75%;
+  }
+  .col-xx-8 {
+    width: 66.6667%;
+  }
+  .col-xx-7 {
+    width: 58.3334%;
+  }
+  .col-xx-6 {
+    width: 50%;
+  }
+  .col-xx-5 {
+    width: 41.6667%;
+  }
+  .col-xx-4 {
+    width: 33.3334%;
+  }
+  .col-xx-3 {
+    width: 25%;
+  }
+  .col-xx-2 {
+    width: 16.6667%;
+  }
+  .col-xx-1 {
+    width: 8.3334%;
+  }
+  .contain-fluid {
+    padding: 0 15px;
+  }
+
+  nav.active {
+    width: 100%;
+  }
+  .businessProHeading .flexRow .heading,
+  h1 {
+    font-size: 30px;
+  }
+  h2 {
+    font-size: 28px;
+  }
+  /*_____ Home _____*/
+  .logo {
+    width: 130px;
+  }
+  header .logo:before {
+    left: -57%;
+  }
+  #banner-products .item .cntnt {
+    min-width: 300px;
+  }
+  #banner-products .social-media {
+    display: none;
+  }
+  #purpose h1 {
+    font-size: 28px;
+  }
+  .app_forms ul li,
+  #contact .infoLst > li,
+  .property_types .flex .col,
+  .landing-types .col,
+  .ctrSec .cntnt,
+  #team .flexRow > .col,
+  #loanProcess .col,
+  #loan .loan-box,
+  .counterSec .cntnt .col {
+    width: 100%;
+  }
+  .property_types .flex .col .cntnt {
+    padding: 20px;
+  }
+  .property_types {
+    height: 100%;
+  }
+  .property_types .flex .col {
+    height: 80vh;
+  }
+  #education h4 {
+    font-size: 16px;
+  }
+  .key_blk h1,
+  #loan .content h1 {
+    font-size: 30px;
+  }
+  #loan .content p {
+    margin: 20px;
+  }
+  footer .upside {
+    flex-direction: column;
+  }
+  .counterSec .heading {
+    font-size: 35px;
+  }
+  .counterSec {
+    padding-top: 0 !important;
+  }
+  #sliderBanner .thumbDot {
+    padding: 0;
+  }
+  .brands .heading h1 {
+    font-size: 30px;
+  }
+  /*_____ education _____*/
+  .business h1,
+  #sBanner .content > h1 {
+    font-size: 40px;
+  }
+  .lender_type_1 .grid-pera p:nth-child(even) {
+    padding-left: none;
+    padding: 10px;
+  }
+  .lender_type_1 .grid-pera p {
+    padding: 0 10px;
+  }
+  .lender_type_2 .headLine {
+    border-bottom: 2px solid #ffffff;
+    background: #80b3df;
+  }
+  .lender_type_2 .txtSide .inner {
+    padding: 55px 10px 10px 10px;
+  }
+  .lenderPro .grid-pera {
+    padding: 10px;
+  }
+  .property_type .col,
+  .loan_stage .col {
+    padding: 0;
+    padding-bottom: 20px;
+  }
+  .loan_stage h1.heading,
+  .property_type h1.heading {
+    font-size: 39px;
+  }
+  .banner_loan .bg_loan {
+    padding-right: 20px;
+    margin-top: 0;
+  }
+  .banner_loan .bg_loan .imagee_loan {
+    display: none;
+  }
+
+  /*_____ about me _____*/
+  .ctrSec .cntnt {
+    margin: 0;
+  }
+  /*_____ closed loan _____*/
+  .closed_loan_1 .colL {
+    padding-right: 0;
+    margin-bottom: 20px;
+  }
+  .closed_loan_1Pro .loanSlider .flex .colR,
+  .closed_loan_1 .colR {
+    margin: 0;
+    padding: 20px;
+  }
+  .closed_loan_1 .colL,
+  .closed_loan_1 .colR,
+  .heading__ {
+    width: 100%;
+  }
+  .closed_loan_1 .image {
+    height: 100%;
+  }
+  .closed_loan_1 ul li h3 {
+    font-size: 18px;
+  }
+  .closed_loan_1 ul li h4 {
+    font-size: 15px;
+  }
+  .owl-carousel.owl-theme .owl-nav .owl-next,
+  .owl-carousel.owl-theme .owl-nav .owl-prev {
+    background: #80b3e0;
+    color: #fff;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  /*_____ col-xx-? _____*/
+  .col-xx-12,
+  .col-xx-11,
+  .col-xx-10,
+  .col-xx-9,
+  .col-xx-8,
+  .col-xx-7,
+  .col-xx-6,
+  .col-xx-5,
+  .col-xx-4,
+  .col-xx-3,
+  .col-xx-2,
+  .col-xx-1 {
+    width: 100% !important;
+  }
+  /*_____ Home _____*/
+  #purpose {
+    margin-top: 0;
+  }
+  /*_____ Common _____*/
+}
+
+@media screen and (max-width: 380px) {
+  /*_____ All Site _____*/
+  h1 {
+    font-size: 28px;
+  }
+  h2 {
+    font-size: 28px;
+  }
+  h3 {
+    font-size: 20px;
+  }
+  .toggle {
+    right: 15px;
+  }
+  header .logo:before {
+    left: -64%;
+  }
+  /*_____ Home _____*/
+  #banner .content > h1 {
+    font-size: 36px;
+  }
+  #banner .content > p {
+    font-size: 16px;
+  }
+  /*_____ Common _____*/
+  #sBanner .content h1 {
+    font-size: 28px;
+  }
+  #education .inner > .txt {
+    padding: 12px 10px 4px;
+  }
+  #education h4 {
+    font-size: 15px;
+  }
+
+  #sliderBanner .hide-bullets li.active:before {
+    right: 70px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  /*_____ Home _____*/
+  header .logo:before {
+    left: -75%;
+  }
+}
+
+/*
+|----------------------------------------------------------------------
+|       Media Queries Height
+|----------------------------------------------------------------------
+*/
+
+@media screen and (max-height: 420px) {
+}
+
+@media screen and (min-height: 768px) {
+}
+
+@media screen and (min-height: 1040px) {
+}
