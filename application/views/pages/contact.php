@@ -47,7 +47,7 @@
                             </div>
                         </li>
                 </ul>
-                <form action="" method="post">
+                <form action="" method="post" id="frmSetting" class="frmAjax">
                     <h2 class="heading text-center">START CONVERSATION</h2>
                     <div class="row formRow">
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 col-xx-6">
