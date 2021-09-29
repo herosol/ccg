@@ -5,6 +5,7 @@ $CI = & get_instance();
 function format_name($fname,$lname)
 {
     return ucwords($fname.' '.$lname);
+    // return ucwords($fname.' '.substr($lname, 0,1).'.');
 }
 
 

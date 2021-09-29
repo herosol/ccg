@@ -249,6 +249,63 @@ function getImageDimension($image)
 }
 /*** end file function ***/
 
+### Static SELECT values
+function yes_no()
+{
+    return ['yes', 'no'];
+}
+
+function gender()
+{
+    return ['male', 'female', 'others'];
+}
+
+function weekDays()
+{
+    return ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'];    
+}
+
+function collection_types()
+{
+    return ['Driver collects from you', 'Driver collects from outside', 'Driver collects from reception/porter'];
+}
+
+function drop_types()
+{
+    return ['Driver drops, rings & waits', 'Driver drops, rings and goes', 'Driver leaves bags at reception/porter'];
+}
+
+function price_format($price)
+{
+    return number_format((float)$price, 2, '.', '');
+}
+
+function order_status()
+{
+    return ['New', 'In Progress', 'Completed', 'Delivered', 'Cancelled', 'Cleared'];
+}
+function proof_status()
+{
+    return ['accepted', 'rejected', 'pending'];
+}
+function address_type()
+{
+    return ['home', 'hotel', 'office'];
+}
+
+function char_limit($x, $length)
+{
+  if(strlen($x)<=$length)
+  {
+    echo $x;
+  }
+  else
+  {
+    $y=substr($x,0,$length) . '...';
+    echo $y;
+  }
+}
+
 function order_status_dropdown($value, $order_id)
 {
     $html = '';
@@ -366,6 +423,41 @@ function oneHourTimeByGiven($default = '', $start, $end)
     return $html; 
 }
 
+function getBredcrum($section, $ary)
+{
+    $bcrum = '
+    <ol class="breadcrumb">
+    <li>
+    <a href="' . base_url($section) . '"><i class="fa fa-home"></i>Home</a>
+    </li>';
+    foreach ($ary as $key => $value) {
+        if ($key == '#') {
+            $bcrum .= '<li class="active"><strong>' . $value . '</strong></li>';
+        } else {
+            $bcrum .= '<li><a href="' . base_url($section . '/' . $key) . '">' . $value . '</a></li>';
+        }
+    }
+    $bcrum .= '</ol>';
+    return $bcrum;
+}
+
+function sepreat_comb($comb)
+{
+    $label = "";
+    $arr = explode(',', $comb);
+    foreach ($arr as $keys => $vals) {
+        $label .= "<span class='badge'>" . $vals . "</span>";
+    }
+    return $label;
+}
+
+function checkEmptyp($val)
+{
+    if (!empty($val)) {
+        return $val;
+    }
+    return "N/A";
+}
 
 function pr($ary, $exit = true)
 {
@@ -675,6 +767,12 @@ function doDecode($string, $key = 'preciousprotection')
     return ($hash);
 }
 
+function format_amount($amount, $size = 2)
+{
+    $amount = floatval($amount);
+    return $amount >= 0 ? "$".number_format($amount, $size) : "$ (".number_format(abs($amount), $size).')';
+}
+
 function num($val, $size = 2)
 {
     return number_format(floatval($val), $size, '.', '');
@@ -692,6 +790,30 @@ function randCode($length = 8, $chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890')
     }
 
     return strtoupper($string);
+}
+
+function checkEmail($email)
+{
+    if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        return true;
+    }
+    return false;
+}
+
+function checkUsername($username)
+{
+    if (preg_match('/^[a-zA-Z0-9]{3,}$/', $username)) {
+        return true;
+    }
+    return false;
+}
+
+function checkPassword($password)
+{
+    if (preg_match('/^[a-zA-Z0-9]{5,}$/', $password)) {
+        return true;
+    }
+    return false;
 }
 
 function setZeroVal($val, $length = 6)
@@ -738,6 +860,102 @@ function makeExternalUrl($url)
     return $url;
 }
 
+function remove_file_from_directry($id, $table_name)
+{
+    global $CI;
+    $ary = $CI->master->getRow($table_name, array('id' => $id));
+    unlink('./assets/site-content/images/' . $ary->src);
+    unlink('./assets/site-content/images/thumb/' . $ary->src);
+    return;
+}
+
+function send_email($vals)
+{
+    global $CI;
+    $CI = get_instance();
+    if ($vals) {
+        $email_to = $vals['site_email'];
+        $msg = "Name: " . $vals['name'] . "<br>";
+        $msg .= "Email: " . $vals['email'] . "<br>";
+        // $msg .= "Order Number: " . $vals['order_number'] . "<br>";
+        $msg .= "Phone: " . $vals['full_phone'] . "<br>";
+        $msg .= "Subject: " . $vals['subject'] . "<br>";
+        $msg .= "Message: " . $vals['msg'] . "<br>";
+        $sub = "Contact Email";
+        $headers = "MIME-Version: 1.0" . "\r\n";
+        $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+        $headers .= "From: " . stripslashes($vals['name']) . $vals['site_noreply_email']. "\r\n";
+        if (@mail($email_to, $sub, $msg, $headers)) {
+            return 1;
+        } else {
+            return 0;
+        }
+    }
+    redirect(currentURL());
+}
+
+function send_site_email($mem_data, $key, $template = 'email')
+{
+    $CI = get_instance();
+    $data['site_settings'] = $CI->master->getRow("siteadmin", array('site_id' => '1'));
+
+    extract($mem_data);
+    $msg_body = addslashes(getSiteText('email', $key));
+    eval("\$msg_body = \"$msg_body\";");
+    $msg_body = stripslashes($msg_body);
+    if(!empty($mem_data['link']))
+        $msg_body.="<p><a href='{$mem_data['link']}' style='color: #37b36f; text-decoration: none;'>".$mem_data['link']."</a></p>";
+
+    $emailto = $mem_data['email'];
+    $subject = getSiteText('email', $key, 'subject');
+    // $subject = $data['site_settings']->site_name." - ".getSiteText('email', $key, 'subject');
+    $headers = "MIME-Version: 1.0\r\n";
+    $headers .= "Content-type: text/html;charset=utf-8\r\n";
+    $headers .= "From: " . $data['site_settings']->site_name . " <" . $data['site_settings']->site_noreply_email . ">" . "\r\n";
+    $headers .= "Reply-To: " . $data['site_settings']->site_name . " <" . $data['site_settings']->site_email . ">" . "\r\n";
+
+    $data['mem_data'] = $mem_data;
+    $data['email_body'] = $msg_body;
+    $data['email_subject'] = $subject;
+    $ebody = $CI->load->view('includes/template-'.$template, $data, TRUE);
+    // exit($ebody);
+    if (@mail($emailto, $subject, $ebody, $headers)) {
+        return 1;
+    } else {
+        return 0;
+    }
+}
+function send_site_admin_email($mem_data, $key ,$template = 'email')
+{
+    $CI = get_instance();
+    $data['site_settings'] = $CI->master->getRow("siteadmin", array('site_id' => '1'));
+
+    extract($mem_data);
+    $msg_body = addslashes(getSiteText('email', $key));
+    eval("\$msg_body = \"$msg_body\";");
+    $msg_body = stripslashes($msg_body);
+    if(!empty($mem_data['link']))
+        $msg_body.="<p><a href='{$mem_data['link']}' style='color: #37b36f; text-decoration: none;'>".$mem_data['link']."</a></p>";
+
+    $emailto =  $data['site_settings']->site_email ;
+    $subject = "New Order has been placed";
+    // $subject = $data['site_settings']->site_name." - ".getSiteText('email', $key, 'subject');
+    $headers = "MIME-Version: 1.0\r\n";
+    $headers .= "Content-type: text/html;charset=utf-8\r\n";
+    $headers .= "From: " . $data['site_settings']->site_name . " <" . $data['site_settings']->site_noreply_email . ">" . "\r\n";
+    $headers .= "Reply-To: " . $mem_data['name'] . " <" . $mem_data['email'] . ">" . "\r\n";
+
+    $data['mem_data'] = $mem_data;
+    $data['email_body'] = $msg_body;
+    $data['email_subject'] = $subject;
+    $ebody = $CI->load->view('includes/template-'.$template, $data, TRUE);
+    // exit($ebody);
+    if (@mail($emailto, $subject, $ebody, $headers)) {
+        return 1;
+    } else {
+        return 0;
+    }
+}
 function imageToBase64($path, $image)
 {
     //return $path . $image;
@@ -757,6 +975,40 @@ function base64ToImage($path, $base64Image)
     return $imagename;
 }
 
+function is_in_string($str, $main_str = 'Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday')
+{
+    $pos = strpos($main_str, $str);
+    if ($pos === false) {
+        $CI = get_instance();
+        $CI->form_validation->set_message('is_in_string', 'Please select valid {field}');
+        return false;
+    }
+    return true;
+}
+
+function show_time_option()
+{
+    /*$options = '<option value="00:00">00:00 AM</option>';
+    foreach (range(1, 11) as $t) {
+        $options .= '<option value="'.sprintf('%02d',$t).':00">'.sprintf('%02d',$t).':00 AM</option>';
+    }
+    $options .= '<option value="12:00">12:00 PM</option>';
+    foreach (range(1, 11) as $t) {
+        $options .= '<option value="'.sprintf('%02d',$t).':00">'.sprintf('%02d',$t).':00 PM</option>';
+    }
+    return $options;*/
+    $options = '<option value="12 AM">12 AM</option>';
+    foreach (range(1, 23) as $t) {
+        $medridian = $t > 11 ? 'PM' : 'AM';
+        $time = $t <= 12 ? $t : $t-12;
+        $options .= '<option value="'.$time.' '.$medridian.'">'.$time.' '.$medridian.'</option>';
+        // $options .= '<option value="'.sprintf('%02d',$time).':00">'.$time.' '.$medridian.'</option>';
+        // $options .= '<option value="'.sprintf('%02d',$time).':00 '.$medridian.'">'.sprintf('%02d', $time).':00 '.$medridian.'</option>';
+        // $options .= '<option value="'.sprintf('%02d',$t).':00">'.sprintf('%02d', $time).':00 '.$medridian.'</option>';
+    }
+    return $options;
+}
+
 function get_meridian_time($d)
 {
     $d = str_replace('/', '-', $d);
@@ -767,6 +1019,46 @@ function get_full_time($d)
 {
     $d = str_replace('/', '-', $d);
     return date("H:i", strtotime($d));
+}
+
+function earning_status_badge($val)
+{
+    if($val == 'pending')
+    {
+        return 'yellow';
+    }
+    else if($val == 'available')
+    {
+        return 'gray';
+    }
+    else if($val == 'paid')
+    {
+        return 'green';
+    }
+    else
+    {
+        return 'blue';
+    }
+}
+
+function earning_status($val)
+{
+    if($val == 'pending')
+    {
+        return 'Pending';
+    }
+    else if($val == 'paid')
+    {
+        return 'Cleared';
+    }
+    else if($val == 'available')
+    {
+        return 'In Balance';
+    }
+    else
+    {
+        return 'Requested';
+    }
 }
 
 function hours_format($h)
@@ -886,6 +1178,10 @@ function calc_dob_details($dob)
     $bday = new DateTime($dob); // Your date of birth
     $today = new Datetime(date('Y-m-d'));
     $diff = $today->diff($bday);
+    /*printf(' Your age : %d years, %d month, %d days', $diff->y, $diff->m, $diff->d);
+    printf("\n");
+    exit;
+    if ($array)*/
     return array('years' => $diff->y, 'months' => $diff->m, 'days' => $diff->d);
 }
 
@@ -916,11 +1212,62 @@ function time_ago($time)
     }
 }
 
+function short_text($str, $length = 150)
+{
+    $str = strip_tags($str);
+    return strlen($str) > $length ? substr($str, 0, $length).'...' : $str;
+}
+
+function short_number_format($num)
+{
+    $x = round($num);
+    $x_number_format = number_format($x);
+    $x_array = explode(',', $x_number_format);
+    $x_parts = array('k', 'm', 'b', 't');
+    $x_count_parts = count($x_array) - 1;
+    $x_display = $x;
+    $x_display = $x_array[0] . ((int) $x_array[1][0] !== 0 ? '.' . $x_array[1][0] : '');
+    $x_display .= $x_parts[$x_count_parts - 1];
+    return $x_display;
+}
+
+function profile_url($mem_id, $title)
+{
+    $CI = get_instance();
+    return ($CI->session->mem_id == $mem_id && $CI->session->has_userdata('mem_type')) ? site_url('profile') : site_url('profile/'.doEncode($mem_id).'/'.toSlugUrl($title));
+}
+
 function get_video_link($link)
 {
     $arr = explode('/', $link);
     $cod = $arr[count($arr)-1];
     return substr($cod, (strpos($cod, '?')+3));
+    // return 'https://www.youtube.com/embed/'.substr($cod, (strpos($cod, '?')+3)).'?rel=0&amp;controls=0&amp;showinfo=0';
+    // ?modestbranding=1&fs=0&iv_load_policy=3&rel=0
+    // ?autoplay=1&loop=1&rel=0&wmode=transparent
+}
+
+function get_genders($key = '')
+{
+    $ary = array(
+        'Male' => 'Male',
+        'Female' => 'Female',
+        'Coed' => 'Coed'
+    );
+    if(!empty($key))
+        return $ary[$key];
+    
+    return $ary;
+}
+
+function get_week_days($key = '')
+{
+    $days = array('Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday');
+    // $days=array('sun'=>'Sunday','mon'=>'Monday','tue'=>'Tuesday','wed'=>'Wednesday','thu'=>'Thursday','fri'=>'Friday','sat'=>'Saturday');
+    if(!empty($key))
+        return $days[$key];
+    
+    return $days;
 }
 
 function get_month_name($month)
@@ -928,4 +1275,54 @@ function get_month_name($month)
     return date("F", mktime(0, 0, 0, $month, 10));
 }
 
+function send_noti_email($email_to, $msg)
+{
+    global $CI;
+    $settings = $CI->data['site_settings'];
+    if ($email_to!='' && $msg!='') {
+
+        $emailto = $email_to;
+        $subject = "Job Notification";
+        $headers = "MIME-Version: 1.0\r\n";
+        $headers .= "Content-type: text/html;charset=utf-8\r\n";
+        $headers .= "From: " . $settings->site_name . " <" . $settings->site_noreply_email . ">" . "\r\n";
+        $headers .= "Reply-To: " . $settings->site_name . " <" . $settings->site_email . ">" . "\r\n";
+
+
+        $CI->data['email_body'] = $msg;
+        $CI->data['email_subject'] = $subject;
+        $ebody = $CI->load->view('includes/email_template', $CI->data, TRUE);
+
+        if (@mail($email_to, $subject, $ebody, $headers)) {
+            return 1;
+        } else {
+            return 0;
+        }
+    }
+}
+
+function curl_call($url, $parms = '', $post_method = 1, $header = array('Connection: Close'))
+{
+    $ch = curl_init($url);
+    curl_setopt($ch, CURLOPT_HTTP_VERSION, CURL_HTTP_VERSION_1_1);
+    curl_setopt($ch, CURLOPT_POST, $post_method);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER,1);
+    if (!empty($parms))
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $parms);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 1);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 2);
+    curl_setopt($ch, CURLOPT_FORBID_REUSE, 1);
+
+    curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
+
+    if ( !($res = curl_exec($ch)) ) {
+        error_log("Got " . curl_error($ch) . " when processing curl data");
+        curl_close($ch);
+        return false;
+    }
+    /*var_dump($res);
+    exit;*/
+    curl_close($ch);
+    return $res;
+}
 ?>
