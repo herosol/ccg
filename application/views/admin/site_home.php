@@ -298,7 +298,7 @@
             <h3> Section 3 (Education)</h3>
             <div class="form-group">
                 <div class="row">
-                    
+
                     <div class="col-md-12">
                         <div class="form-group">
                             <div class="col-md-12">
@@ -356,14 +356,14 @@
                         <div class="col-md-12">
                             <label class="control-label">  Link <span class="symbol required">*</span></label>
                             <select name="sec3_card1_link" id="sec3_card1_link" class="form-control" required>
-                                        <option value=''>-- Select --</option>
-                                        <?php $pages = get_pages();
-                                        foreach($pages as $page){?>
-                                            <option value="<?=$page?>" <?=($row['sec3_card1_link']==$page)?'selected':'' ?>> <?=$page?></option>
-                                            <?php
-                                        }
-                                        ?>
-                                    </select>
+                                <option value=''>-- Select --</option>
+                                <?php $pages = get_pages();
+                                foreach($pages as $page){?>
+                                    <option value="<?=$page?>" <?=($row['sec3_card1_link']==$page)?'selected':'' ?>> <?=$page?></option>
+                                    <?php
+                                }
+                                ?>
+                            </select>
                         </div>
                     </div>
                 </div>
@@ -408,14 +408,14 @@
                         <div class="col-md-12">
                             <label class="control-label">  Link <span class="symbol required">*</span></label>
                             <select name="sec3_card2_link" id="sec3_card2_link" class="form-control" required>
-                                        <option value=''>-- Select --</option>
-                                        <?php $pages = get_pages();
-                                        foreach($pages as $page){?>
-                                            <option value="<?=$page?>" <?=($row['sec3_card2_link']==$page)?'selected':'' ?>> <?=$page?></option>
-                                            <?php
-                                        }
-                                        ?>
-                                    </select>
+                                <option value=''>-- Select --</option>
+                                <?php $pages = get_pages();
+                                foreach($pages as $page){?>
+                                    <option value="<?=$page?>" <?=($row['sec3_card2_link']==$page)?'selected':'' ?>> <?=$page?></option>
+                                    <?php
+                                }
+                                ?>
+                            </select>
                         </div>
                     </div>
                 </div>
@@ -460,13 +460,13 @@
                         <div class="col-md-12">
                             <label class="control-label">  Link <span class="symbol required">*</span></label>
                             <select name="sec3_card3_link" id="sec3_card3_link" class="form-control" required>
-                                        <option value=''>-- Select --</option>
-                                        <?php $pages = get_pages();
-                                        foreach($pages as $page){?>
-                                            <option value="<?=$page?>" <?=($row['sec3_card3_link']==$page)?'selected':'' ?>> <?=$page?></option>
-                                            <?php
-                                        }
-                                        ?>
+                                <option value=''>-- Select --</option>
+                                <?php $pages = get_pages();
+                                foreach($pages as $page){?>
+                                    <option value="<?=$page?>" <?=($row['sec3_card3_link']==$page)?'selected':'' ?>> <?=$page?></option>
+                                    <?php
+                                }
+                                ?>
                             </select>
                         </div>
                     </div>
@@ -706,7 +706,7 @@
             <div clas="form-group">
                 <div class="col-md-12">
                     <div class="row">
-                        
+
                         <div class="col-md-12">
                             <div class="form-group">
                                 <div class="col-md-6">
@@ -721,15 +721,160 @@
                             </div>
                         </div>
                     </div>
-                </div>    
-            </div>
-            
-            <div class="form-group">
-                <label for="field-1" class="col-sm-2 control-label "></label>
-                <div class="col-sm-10">
-                    <button type="submit" class="btn btn-primary btn-lg col-md-3 pull-right"><i class="fa fa-save"></i> Save</button>
+                    <div class="row">
+
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <div class="col-md-6">
+                                    <div class="panel panel-primary" data-collapsed="0">
+                                        <div class="panel-heading">
+                                            <div class="panel-title">
+                                               Image 1
+                                           </div>
+                                           <div class="panel-options">
+                                            <a href="#" data-rel="collapse"><i class="entypo-down-open"></i></a>
+                                        </div>
+                                    </div>
+                                    <div class="panel-body">
+                                        <div class="fileinput fileinput-new" data-provides="fileinput">
+                                            <div class="fileinput-new thumbnail" style="max-width: 310px; height: 110px;" data-trigger="fileinput">
+                                                <img src="<?= !empty($row['image12']) ? getImageSrc(UPLOAD_PATH."images/", $row['image12']) : 'http://placehold.it/1000x1000' ?>" alt="--">
+                                            </div>
+                                            <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 320px; max-height: 160px; line-height: 6px;"></div>
+                                            <div>
+                                                <span class="btn btn-white btn-file">
+                                                    <span class="fileinput-new">Select image</span>
+                                                    <span class="fileinput-exists">Change</span>
+                                                    <input type="file" name="image12" accept="image/*" >
+                                                </span>
+                                                <a href="#" class="btn btn-orange fileinput-exists" data-dismiss="fileinput">Remove</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="sec5_left_image1_heading" class="control-label"> Image 1 Heading  <span class="symbol required">*</span></label>
+                                <input type="text" name="sec5_left_image1_heading" id="sec5_left_image1_heading" value="<?= $row['sec5_left_image1_heading'] ?>" class="form-control" required>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>   
+
+            <div class="row">
+
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <div class="col-md-6">
+                            <div class="panel panel-primary" data-collapsed="0">
+                                <div class="panel-heading">
+                                    <div class="panel-title">
+                                       Image 2
+                                   </div>
+                                   <div class="panel-options">
+                                    <a href="#" data-rel="collapse"><i class="entypo-down-open"></i></a>
+                                    </div>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="fileinput fileinput-new" data-provides="fileinput">
+                                        <div class="fileinput-new thumbnail" style="max-width: 310px; height: 110px;" data-trigger="fileinput">
+                                            <img src="<?= !empty($row['image13']) ? getImageSrc(UPLOAD_PATH."images/", $row['image13']) : 'http://placehold.it/1000x1000' ?>" alt="--">
+                                        </div>
+                                        <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 320px; max-height: 160px; line-height: 6px;"></div>
+                                        <div>
+                                            <span class="btn btn-white btn-file">
+                                                <span class="fileinput-new">Select image</span>
+                                                <span class="fileinput-exists">Change</span>
+                                                <input type="file" name="image13" accept="image/*" >
+                                            </span>
+                                            <a href="#" class="btn btn-orange fileinput-exists" data-dismiss="fileinput">Remove</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="sec5_left_image2_heading" class="control-label"> Image 2 Heading  <span class="symbol required">*</span></label>
+                            <input type="text" name="sec5_left_image2_heading" id="sec5_left_image2_heading" value="<?= $row['sec5_left_image2_heading'] ?>" class="form-control" required>
+                        </div>
+
+                    </div>
                 </div>
             </div>
-        </form>
+
+            <div class="row">
+
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <div class="col-md-6">
+                            <label for="sec4_btn_link" class="control-label">  Button Link <span class="symbol required">*</span></label>
+                            <select name="sec4_btn_link" id="sec4_btn_link" class="form-control" required>
+                                <option value=''>-- Select --</option>
+                                <?php $pages = get_pages();
+                                foreach($pages as $page){?>
+                                    <option value="<?=$page?>" <?=($row['sec4_btn_link']==$page)?'selected':'' ?>> <?=$page?></option>
+                                    <?php
+                                }
+                                ?>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="sec5_left_btn_text" class="control-label"> Button Text  <span class="symbol required">*</span></label>
+                            <input type="text" name="sec5_left_btn_text" id="sec5_left_btn_text" value="<?= $row['sec5_left_btn_text'] ?>" class="form-control" required>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            </div> 
+
+            <h3>Right Section</h3>
+            
+            <div clas="form-group">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="panel panel-primary" data-collapsed="0">
+                                <div class="panel-heading">
+                                    <div class="panel-title">
+                                        Slider Image 1
+                                    </div>
+                                    <div class="panel-options">
+                                        <a href="#" data-rel="collapse"><i class="entypo-down-open"></i></a>
+                                    </div>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="fileinput fileinput-new" data-provides="fileinput">
+                                        <div class="fileinput-new thumbnail" style="max-width: 310px; height: 110px;" data-trigger="fileinput">
+                                            <img src="<?= !empty($row['image14']) ? getImageSrc(UPLOAD_PATH."images/", $row['image14']) : 'http://placehold.it/1000x1000' ?>" alt="--">
+                                        </div>
+                                        <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 320px; max-height: 160px; line-height: 6px;"></div>
+                                        <div>
+                                            <span class="btn btn-white btn-file">
+                                                <span class="fileinput-new">Select image</span>
+                                                <span class="fileinput-exists">Change</span>
+                                                <input type="file" name="image14" accept="image/*" >
+                                            </span>
+                                            <a href="#" class="btn btn-orange fileinput-exists" data-dismiss="fileinput">Remove</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>    
+            </div>
+</div>
+
+<div class="form-group">
+    <label for="field-1" class="col-sm-2 control-label "></label>
+    <div class="col-sm-10">
+        <button type="submit" class="btn btn-primary btn-lg col-md-3 pull-right"><i class="fa fa-save"></i> Save</button>
     </div>
+</div>
+</form>
+</div>
 </div>
