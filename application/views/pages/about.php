@@ -3,15 +3,15 @@
 
 <head>
     <title>About us — CCG</title>
-    <?php require_once('includes/site-master.php'); ?>
+    <?php $this->load->view('includes/site-master'); ?>
 </head>
 
 <body id="home-page">
-    <?php require_once('includes/header.php'); ?>
+    <?php $this->load->view('includes/header'); ?>
     <main common typical about>
 
 
-        <section id="sBanner" style="background-image: url('images/3q.jpg');">
+        <section id="sBanner" style="background-image: url('<?= base_url() ?>assets/images/3q.jpg');">
             <div class="contain">
                 <div class="content">
                     <h1>About us</h1>
@@ -24,7 +24,7 @@
             <div class="contain">
                 <div class="flexRow flex">
                     <div class="col col1">
-                        <div class="image"><img src="images/imgg5.jpg" alt=""></div>
+                        <div class="image"><img src="<?= base_url() ?>assets/images/imgg5.jpg" alt=""></div>
                     </div>
                     <div class="col col2">
                         <div class="content">
@@ -55,7 +55,7 @@
                 <div class="flexRow flex">
                     <div class="col">
                         <div class="inner">
-                            <div class="ico"><img src="images/1.jpg" alt=""></div>
+                            <div class="ico"><img src="<?= base_url() ?>assets/images/1.jpg" alt=""></div>
                             <div class="txt">
                                 <h3>Jennifer Kim</h3>
                                 <p>Company President</p>
@@ -68,7 +68,7 @@
                     </div>
                     <div class="col">
                         <div class="inner">
-                            <div class="ico"><img src="images/2.jpg" alt=""></div>
+                            <div class="ico"><img src="<?= base_url() ?>assets/images/2.jpg" alt=""></div>
                             <div class="txt">
                                 <h3>Or Shane</h3>
                                 <p>Pricing Analytics</p>
@@ -81,7 +81,7 @@
                     </div>
                     <div class="col">
                         <div class="inner">
-                            <div class="ico"><img src="images/3.jpg" alt=""></div>
+                            <div class="ico"><img src="<?= base_url() ?>assets/images/3.jpg" alt=""></div>
                             <div class="txt">
                                 <h3>Summer Ken</h3>
                                 <p>Director Pricing Strategy</p>
@@ -94,7 +94,7 @@
                     </div>
                     <div class="col">
                         <div class="inner">
-                            <div class="ico"><img src="images/4.jpg" alt=""></div>
+                            <div class="ico"><img src="<?= base_url() ?>assets/images/4.jpg" alt=""></div>
                             <div class="txt">
                                 <h3>John Wick</h3>
                                 <p>Managing Director</p>
@@ -107,7 +107,7 @@
                     </div>
                     <div class="col">
                         <div class="inner">
-                            <div class="ico"><img src="images/5.jpg" alt=""></div>
+                            <div class="ico"><img src="<?= base_url() ?>assets/images/5.jpg" alt=""></div>
                             <div class="txt">
                                 <h3>John Wick</h3>
                                 <p>Managing Director</p>
@@ -120,7 +120,7 @@
                     </div>
                     <div class="col">
                         <div class="inner">
-                            <div class="ico"><img src="images/2.jpg" alt=""></div>
+                            <div class="ico"><img src="<?= base_url() ?>assets/images/2.jpg" alt=""></div>
                             <div class="txt">
                                 <h3>John Wick</h3>
                                 <p>Managing Director</p>
@@ -138,7 +138,7 @@
 
 
     </main>
-    <?php require_once('includes/footer.php'); ?>
+    <?php $this->load->view('includes/footer'); ?>
 </body>
 
 </html>

@@ -3,14 +3,14 @@
 
 <head>
     <title>Terms & Conditions — CCG</title>
-    <?php require_once('includes/site-master.php'); ?>
+    <?php $this->load->view('includes/site-master'); ?>
 </head>
 
 <body id="home-page">
-    <?php require_once('includes/header.php'); ?>
+    <?php $this->load->view('includes/header'); ?>
     <main common terms>
 
-    <section id="sBanner" style="background-image: url('images/3q.jpg');">
+    <section id="sBanner" style="background-image: url('<?= base_url() ?>assets/images/3q.jpg');">
             <div class="contain">
                 <div class="content">
                     <h1>Terms to know</h1>
@@ -102,7 +102,7 @@
 
 
     </main>
-    <?php require_once('includes/footer.php'); ?>
+    <?php $this->load->view('includes/footer'); ?>
 </body>
 
 </html>

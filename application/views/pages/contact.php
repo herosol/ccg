@@ -3,15 +3,15 @@
 
 <head>
     <title>Contact us — CCG</title>
-    <?php require_once('includes/site-master.php'); ?>
+    <?php $this->load->view('includes/site-master'); ?>
 </head>
 
 <body id="home-page" class="logo-ori">
-    <?php require_once('includes/header.php'); ?>
+    <?php $this->load->view('includes/header'); ?>
     <main common typical contact>
 
 
-        <section id="sBanner" style="background-image: url('images/3q.jpg');">
+        <section id="sBanner" style="background-image: url('<?= base_url() ?>assets/images/3q.jpg');">
             <div class="contain">
                 <div class="content">
                     <h1>Ask any question</h1>
@@ -30,19 +30,19 @@
                 <ul class="infoLst flex text-center">
                         <li>
                             <div class="inner">
-                                <div class="icon"><img src="images/icon-map-marker.svg" alt=""></div>
+                                <div class="icon"><img src="<?= base_url() ?>assets/images/icon-map-marker.svg" alt=""></div>
                                 <span>1934 Contra Costa Blvd.<br />Pleasant Hill, CA 94523</span>
                             </div>
                         </li>
                         <li>
                             <div class="inner">
-                                <div class="icon"><img src="images/icon-phone.svg" alt=""></div>
+                                <div class="icon"><img src="<?= base_url() ?>assets/images/icon-phone.svg" alt=""></div>
                                 <a href="tel:+1-866-895-2008">+1-866-895-2008</a>
                             </div>
                         </li>
                          <li>
                             <div class="inner">
-                                <div class="icon"><img src="images/icon-envelope-fill.svg" alt=""></div>
+                                <div class="icon"><img src="<?= base_url() ?>assets/images/icon-envelope-fill.svg" alt=""></div>
                                 <a href="mailto:info@CreativeCommercialGroup.com">info@CreativeCommercialGroup.com</a>
                             </div>
                         </li>
@@ -90,7 +90,7 @@
 
 
     </main>
-    <?php require_once('includes/footer.php'); ?>
+    <?php $this->load->view('includes/footer'); ?>
 </body>
 
 </html>

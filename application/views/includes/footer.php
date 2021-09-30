@@ -19,25 +19,25 @@
                 <div class="col col2">
                     <h3>Company</h3>
                     <ul class="lst">
-                        <li><a href="index.php">Home</a></li>
-                        <li><a href="about.php">About Us</a></li>
-                        <li><a href="loan.php">Loan Programs</a></li>
-                        <li><a href="calculator.php">Rate Calculator</a></li>
-                        <li><a href="closed-loan.php">Closed Loans</a></li>
-                        <li><a href="form-page.php">Forms</a></li>
-                        <li><a href="contact.php">Contact Us</a></li>
+                        <li><a href="<?= base_url() ?>">Home</a></li>
+                        <li><a href="<?= base_url() ?>about-us">About Us</a></li>
+                        <li><a href="<?= base_url() ?>loan-programs">Loan Programs</a></li>
+                        <li><a href="<?= base_url() ?>rate-calculator">Rate Calculator</a></li>
+                        <li><a href="<?= base_url() ?>closed-loan">Closed Loans</a></li>
+                        <li><a href="<?= base_url() ?>forms">Forms</a></li>
+                        <li><a href="<?= base_url() ?>contact">Contact Us</a></li>
                     </ul>
                 </div>
                 <div class="col col3">
                     <h3>Education</h3>
                     <ul class="lst">
-                        <li><a href="lender-types.php">Lender Types</a></li>
-                        <li><a href="mortage-types.php">Mortage Types</a></li>
-                        <li><a href="key_concepts.php">Key Concepts</a></li>
-                        <li><a href="qualification.php">Qualification</a></li>
-                        <li><a href="llona_P.php">Loan Process</a></li>
-                        <li><a href="terms-and-conditions.php">Terms to Know</a></li>
-                        <li><a href="faq.php">FAQ's</a></li>
+                        <li><a href="<?= base_url() ?>lender-types">Lender Types</a></li>
+                        <li><a href="<?= base_url() ?>mortage-types">Mortage Types</a></li>
+                        <li><a href="<?= base_url() ?>key-concepts">Key Concepts</a></li>
+                        <li><a href="<?= base_url() ?>qualification">Qualification</a></li>
+                        <li><a href="<?= base_url() ?>loan-process">Loan Process</a></li>
+                        <li><a href="<?= base_url() ?>terms-to-know">Terms to Know</a></li>
+                        <li><a href="<?= base_url() ?>faqs">FAQ's</a></li>
                     </ul>
                 </div>
                 <div class="col col4">

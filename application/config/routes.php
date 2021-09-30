@@ -57,10 +57,23 @@ $route['translate_uri_dashes'] = FALSE;
 $route['admin/login']     = 'admin/index/login';
 $route['admin/logout']    = 'admin/index/logout';
 $route['admin/meta-info'] = 'admin/Meta_info/index';
-$route['admin/pending-proof'] = 'admin/delivery_proof';
-$route['admin/rejected-proof'] = 'admin/delivery_proof';
-$route['admin/accepted-proof'] = 'admin/delivery_proof';
-$route['admin/delivery_proof/manage/(:any)'] = 'admin/delivery_proof/manage';
 $route['admin/meta-info/manage'] = 'admin/Meta_info/manage';
 $route['admin/meta-info/manage/(:any)'] = 'admin/Meta_info/manage/$1';
 $route['admin/meta-info/delete/(:any)'] = 'admin/Meta_info/delete/$1';
+
+##FRONT PAGES
+$route['about-us']         = 'pages/about_us';
+$route['loan-programs']    = 'pages/load_programs';
+$route['rate-calculator']  = 'pages/rate_calculator';
+$route['closed-loan']      = 'pages/closed_loan';
+$route['forms']            = 'pages/forms';
+$route['contact']          = 'pages/contact';
+$route['lender-types']     = 'pages/lender_types';
+$route['mortage-types']    = 'pages/mortage_types';
+$route['key-concepts']     = 'pages/key_concepts';
+$route['qualification']    = 'pages/qualification';
+$route['loan-process']     = 'pages/loan_process';
+$route['terms-to-know']    = 'pages/terms_and_conditions';
+$route['faqs']             = 'pages/faq';
+
+

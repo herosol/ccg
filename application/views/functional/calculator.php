@@ -3,15 +3,15 @@
 
 <head>
     <title>Rate Calculator — CCG</title>
-    <?php require_once('includes/site-master.php'); ?>
+    <?php $this->load->view('includes/site-master'); ?>
 </head>
 
 <body id="home-page">
-    <?php require_once('includes/header.php'); ?>
+    <?php $this->load->view('includes/header'); ?>
     <main common services>
 
 
-        <section id="sBanner" style="background-image: url('images/3q.jpg');">
+        <section id="sBanner" style="background-image: url('<?= base_url() ?>assets/images/3q.jpg');">
             <div class="contain">
                 <div class="content">
                     <h1>Rate Calculator</h1>
@@ -25,7 +25,7 @@
             <div class="contain">
                 <div class="flexRow flex">
                     <div class="col col1">
-                        <div class="image"><img src="images/cal.jpg" alt=""></div>
+                        <div class="image"><img src="<?= base_url() ?>assets/images/cal.jpg" alt=""></div>
                     </div>
                     <div class="col col2">
                         <div class="content">
@@ -61,7 +61,7 @@
 
 
     </main>
-    <?php require_once('includes/footer.php'); ?>
+    <?php $this->load->view('includes/footer'); ?>
 </body>
 
 </html>

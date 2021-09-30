@@ -3,15 +3,15 @@
 
 <head>
     <title>Loan Qualification — CCG</title>
-    <?php require_once('includes/site-master.php'); ?>
+    <?php $this->load->view('includes/site-master'); ?>
 </head>
 
 <body id="home-page">
-    <?php require_once('includes/header.php'); ?>
+    <?php $this->load->view('includes/header'); ?>
     <main common services>
 
 
-        <section id="sBanner" style="background-image: url('images/3q.jpg');">
+        <section id="sBanner" style="background-image: url('<?= base_url() ?>assets/images/3q.jpg');">
             <div class="contain">
                 <div class="content">
                     <h1>Client Education</h1>
@@ -26,7 +26,7 @@
             <div class="contain">
                 <div class="flexRow flex">
                     <div class="col col1">
-                        <div class="image"><img src="images/qq1.jpg" alt=""></div>
+                        <div class="image"><img src="<?= base_url() ?>assets/images/qq1.jpg" alt=""></div>
                     </div>
                     <div class="col col2">
                         <div class="content">
@@ -46,7 +46,7 @@
                 <div class="flexRow flex">
                     <div class="col">
                         <div class="inner">
-                            <div class="image"><img src="images/111.png" alt=""></div>                            
+                            <div class="image"><img src="<?= base_url() ?>assets/images/111.png" alt=""></div>                            
                                 <div class="txt">
                                     <a href="#"><h4>Recourse vs. Non-Recourse</h4> </a>
                                     <p>Explore new skills, deepen existing passions, and get lost in creativity. What you find just might surprise and inspire you.</p>
@@ -55,7 +55,7 @@
                     </div>
                     <div class="col">
                         <div class="inner">
-                            <div class="image"><img src="images/222.png" alt=""></div>                            
+                            <div class="image"><img src="<?= base_url() ?>assets/images/222.png" alt=""></div>                            
                                 <div class="txt">
                                     <a href="#"><h4>Personal Financials</h4> </a>
                                     <p>Explore new skills, deepen existing passions, and get lost in creativity. What you find just might surprise and inspire you.</p>
@@ -64,7 +64,7 @@
                     </div>
                     <div class="col">
                         <div class="inner">
-                            <div class="image"><img src="images/333.png" alt=""></div>                            
+                            <div class="image"><img src="<?= base_url() ?>assets/images/333.png" alt=""></div>                            
                                 <div class="txt">
                                     <a href="#"><h4>Business Outlook</h4> </a>
                                     <p>Explore new skills, deepen existing passions, and get lost in creativity. What you find just might surprise and inspire you.</p>
@@ -73,7 +73,7 @@
                     </div>
                     <div class="col">
                         <div class="inner">
-                            <div class="image"><img src="images/444.png" alt=""></div>                            
+                            <div class="image"><img src="<?= base_url() ?>assets/images/444.png" alt=""></div>                            
                                 <div class="txt">
                                     <a href="#"><h4>Business Financials</h4> </a>
                                     <p>Explore new skills, deepen existing passions, and get lost in creativity. What you find just might surprise and inspire you.</p>
@@ -82,7 +82,7 @@
                     </div>
                     <div class="col">
                         <div class="inner">
-                            <div class="image"><img src="images/555.png" alt=""></div>                            
+                            <div class="image"><img src="<?= base_url() ?>assets/images/555.png" alt=""></div>                            
                                 <div class="txt">
                                     <a href="#"><h4>Business Financials</h4> </a>
                                     <p>Explore new skills, deepen existing passions, and get lost in creativity. What you find just might surprise and inspire you.</p>
@@ -91,7 +91,7 @@
                     </div>
                     <div class="col">
                         <div class="inner">
-                            <div class="image"><img src="images/666.png" alt=""></div>                            
+                            <div class="image"><img src="<?= base_url() ?>assets/images/666.png" alt=""></div>                            
                                 <div class="txt">
                                     <a href="#"><h4>Business Financials</h4> </a>
                                     <p>Explore new skills, deepen existing passions, and get lost in creativity. What you find just might surprise and inspire you.</p>
@@ -100,7 +100,7 @@
                     </div>
                     <div class="col">
                         <div class="inner">
-                            <div class="image"><img src="images/777.png" alt=""></div>                            
+                            <div class="image"><img src="<?= base_url() ?>assets/images/777.png" alt=""></div>                            
                                 <div class="txt">
                                     <a href="#"><h4>Business Financials</h4> </a>
                                     <p>Explore new skills, deepen existing passions, and get lost in creativity. What you find just might surprise and inspire you.</p>
@@ -109,7 +109,7 @@
                     </div>
                     <div class="col">
                         <div class="inner">
-                            <div class="image"><img src="images/888.png" alt=""></div>                            
+                            <div class="image"><img src="<?= base_url() ?>assets/images/888.png" alt=""></div>                            
                                 <div class="txt">
                                     <a href="#"><h4>Business Financials</h4> </a>
                                     <p>Explore new skills, deepen existing passions, and get lost in creativity. What you find just might surprise and inspire you.</p>
@@ -118,7 +118,7 @@
                     </div>
                     <div class="col">
                         <div class="inner">
-                            <div class="image"><img src="images/999.png" alt=""></div>                            
+                            <div class="image"><img src="<?= base_url() ?>assets/images/999.png" alt=""></div>                            
                                 <div class="txt">
                                     <a href="#"><h4>Business Financials</h4> </a>
                                     <p>Explore new skills, deepen existing passions, and get lost in creativity. What you find just might surprise and inspire you.</p>
@@ -132,7 +132,7 @@
 
 
     </main>
-    <?php require_once('includes/footer.php'); ?>
+    <?php $this->load->view('includes/footer'); ?>
 </body>
 
 </html>

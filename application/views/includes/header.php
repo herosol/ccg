@@ -1,7 +1,8 @@
+<?php $page = $this->uri->segment(1);?>
 <header class="ease">
     <div class="contain-fluid">
         <div class="logo ease">
-            <a href="index.php">
+            <a href="<?= base_url() ?>">
                 <img src="<?=base_url()?>assets/images/logo.png" alt="">
             </a>
         </div>
@@ -9,51 +10,53 @@
         <nav class="ease">
         <div class="toggle dar-zindex"><span></span></div>
             <ul id="nav">
-                <li>
-                    <a href="index.php">Home</a>
+                <li class="<?php if ($page == "" || $page == "home") {
+                                echo 'active';
+                            } ?>">
+                    <a href="<?= base_url() ?>">Home</a>
                 </li>
-                <li class="<?php if ($page == "services") {
+                <li class="<?php if (in_array($page, ['lender-types', 'mortage-types', 'key-concepts', 'qualification', 'loan-process', 'terms-to-know', 'faqs'])) {
                                 echo 'active';
                             } ?> drop">
                     <a href="#">Education</a>
                     <ul class="sub">
-                        <li><a href="lender-types.php">Lender Types</a></li>
-                        <li><a href="mortage-types.php">Mortage Types</a></li>
-                        <li><a href="key_concepts.php">Key Concepts</a></li>
-                        <li><a href="qualification.php">Qualification</a></li>
-                        <li><a href="lona_P.php">Loan Process</a></li>
-                        <li><a href="terms-and-conditions.php">Terms to Know</a></li>
-                        <li><a href="faq.php">FAQ's</a></li>
+                        <li><a href="<?= base_url() ?>lender-types">Lender Types</a></li>
+                        <li><a href="<?= base_url() ?>mortage-types">Mortage Types</a></li>
+                        <li><a href="<?= base_url() ?>key-concepts">Key Concepts</a></li>
+                        <li><a href="<?= base_url() ?>qualification">Qualification</a></li>
+                        <li><a href="<?= base_url() ?>loan-process">Loan Process</a></li>
+                        <li><a href="<?= base_url() ?>terms-to-know">Terms to Know</a></li>
+                        <li><a href="<?= base_url() ?>faqs">FAQ's</a></li>
                     </ul>
                 </li>
-                <li class="<?php if ($page == "about") {
+                <li class="<?php if ($page == "about-us") {
                                 echo 'active';
                             } ?>">
-                    <a href="about.php">About us</a>
+                    <a href="<?= base_url() ?>about-us">About us</a>
                 </li>
 
-                <li class="<?php if ($page == "loan") {
+                <li class="<?php if ($page == "loan-programs") {
                                 echo 'active';
                             } ?>">
-                    <a href="loan.php">Loan Programs</a>
+                    <a href="<?= base_url() ?>loan-programs">Loan Programs</a>
                 </li>
 
-                <li class="<?php if ($page == "calculator") {
+                <li class="<?php if ($page == "rate-calculator") {
                                 echo 'active';
                             } ?>">
-                    <a href="calculator.php">Rate Calculator</a>
+                    <a href="<?= base_url() ?>rate-calculator">Rate Calculator</a>
                 </li>
 
                 <li class="<?php if ($page == "closed-loan") {
                                 echo 'active';
                             } ?>">
-                    <a href="closed-loan.php">Closed Loans</a>
+                    <a href="<?= base_url() ?>closed-loan">Closed Loans</a>
                 </li>
 
-                <li class="<?php if ($page == "form-page") {
+                <li class="<?php if ($page == "forms") {
                                 echo 'active';
                             } ?>">
-                    <a href="form-page.php">Forms</a>
+                    <a href="<?= base_url() ?>forms">Forms</a>
                 </li>
                 
 
@@ -64,7 +67,7 @@
                 <li class="<?php if ($page == "contact") {
                                 echo 'active';
                             } ?>">
-                    <a href="contact.php" class="webBtn blankBtn">Contact us now</a>
+                    <a href="<?= base_url() ?>contact" class="webBtn blankBtn">Contact us now</a>
                 </li>
                 
                 <li class="soccial">
@@ -86,8 +89,8 @@
   <a href="javascript:void(0)" class="closebtn">&times;</a>
   <div class="overlay-content">
         <ul>
-            <li><a href="about.php">About us</a></li>
-            <li><a href="about.php">About us</a></li>
+            <li><a href="about">About us</a></li>
+            <li><a href="about">About us</a></li>
             <li class="drop">
                     <a href="services.php">Services</a>
                     <ul class="sub">

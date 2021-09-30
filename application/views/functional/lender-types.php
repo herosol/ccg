@@ -3,15 +3,15 @@
 
 <head>
     <title>Lender Types — CCG</title>
-    <?php require_once('includes/site-master.php'); ?>
+    <?php $this->load->view('includes/site-master'); ?>
 </head>
 
 <body id="home-page">
-    <?php require_once('includes/header.php'); ?>
+    <?php $this->load->view('includes/header'); ?>
     <main common services>
 
 
-        <section id="sBanner" style="background-image: url('images/3q.jpg');">
+        <section id="sBanner" style="background-image: url('<?= base_url() ?>assets/images/3q.jpg');">
             <div class="contain">
                 <div class="content">
                     <h1>Client Education</h1>
@@ -26,7 +26,7 @@
             <div class="contain">
                 <div class="flexRow flex">
                     <div class="col col1">
-                        <div class="image"><img src="images/l1.jpg" alt=""></div>
+                        <div class="image"><img src="<?= base_url() ?>assets/images/l1.jpg" alt=""></div>
                     </div>
                     <div class="col col2">
                         <div class="content">
@@ -41,7 +41,7 @@
         </section>
         <!-- business -->
     <section class="lender_type_1">
-        <div class="image"><img src="images/home.png" alt=""></div>
+        <div class="image"><img src="<?= base_url() ?>assets/images/home.png" alt=""></div>
         <div class="contain">
             <div class="text-center">
             <h1 class="heading">Banking Institutions</h1>
@@ -70,7 +70,7 @@
                     <div class="col imgSide">
                         <div class="inner">
                             <div class="image">
-                                <img src="images/l2.jpg">
+                                <img src="<?= base_url() ?>assets/images/l2.jpg">
                             </div>
                         </div>
                     </div>
@@ -96,7 +96,7 @@ Given these implications, CMBS loans are usually a better fit for long-term hold
             <div class="contain">
                 <div class="flexRow flex">
                     <div class="col col1">
-                        <div class="image"><img src="images/gc.jpg" alt=""></div>
+                        <div class="image"><img src="<?= base_url() ?>assets/images/gc.jpg" alt=""></div>
                     </div>
                     <div class="col col2">
                         <div class="content">
@@ -109,7 +109,7 @@ Given these implications, CMBS loans are usually a better fit for long-term hold
     </section>
     <!-- lender type 4-->
     <section class="lender_type_1 lenderPro">
-        <div class="image"><img src="images/fam.jpg" alt=""></div>
+        <div class="image"><img src="<?= base_url() ?>assets/images/fam.jpg" alt=""></div>
         <div class="contain-fluid">
            
             <div class="flexRow flex grid-pera">                
@@ -124,7 +124,7 @@ Given these implications, CMBS loans are usually a better fit for long-term hold
             <div class="contain">
                 <div class="flexRow flex">
                     <div class="col col1">
-                        <div class="image"><img src="images/l1.jpg" alt=""></div>
+                        <div class="image"><img src="<?= base_url() ?>assets/images/l1.jpg" alt=""></div>
                     </div>
                     <div class="col col2">
                         <div class="content">
@@ -139,7 +139,7 @@ Given these implications, CMBS loans are usually a better fit for long-term hold
         <!--  lender type last -->
 
     </main>
-    <?php require_once('includes/footer.php'); ?>
+    <?php $this->load->view('includes/footer'); ?>
 </body>
 
 </html>

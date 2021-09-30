@@ -3,15 +3,15 @@
 
 <head>
     <title>Closed Loans — CCG</title>
-    <?php require_once('includes/site-master.php'); ?>
+    <?php $this->load->view('includes/site-master'); ?>
 </head>
 
 <body id="home-page">
-    <?php require_once('includes/header.php'); ?>
+    <?php $this->load->view('includes/header'); ?>
     <main common closed_loans>
 
 
-        <section id="sBanner" style="background-image: url('images/3q.jpg');">
+        <section id="sBanner" style="background-image: url('<?= base_url() ?>assets/images/3q.jpg');">
             <div class="contain">
                 <div class="content">
                     <h1>Closed Loan</h1>
@@ -25,7 +25,7 @@
             <div class="contain">
                 <div class="flexRow flex">
                     <div class="col col1">
-                        <div class="image"><img src="images/purpose.jpg" alt=""></div>
+                        <div class="image"><img src="<?= base_url() ?>assets/images/purpose.jpg" alt=""></div>
                     </div>
                     <div class="col col2">
                         <div class="content">
@@ -54,7 +54,7 @@
                         <div class="flex">
                             <div class="colL">
                                 <div class="image">
-                                    <img src="images/11.jpg">
+                                    <img src="<?= base_url() ?>assets/images/11.jpg">
                                 </div>
                             </div>
                             <div class="colR">
@@ -75,7 +75,7 @@
                         <div class="flex">
                             <div class="colL">
                                 <div class="image">
-                                    <img src="images/slider2.jpg">
+                                    <img src="<?= base_url() ?>assets/images/slider2.jpg">
                                 </div>
                             </div>
                             <div class="colR">
@@ -105,7 +105,7 @@
                         <div class="flex">
                             <div class="colL">
                                 <div class="image">
-                                    <img src="images/12.jpg">
+                                    <img src="<?= base_url() ?>assets/images/12.jpg">
                                 </div>
                             </div>
                             <div class="colR">
@@ -128,7 +128,7 @@
                         <div class="flex">
                             <div class="colL">
                                 <div class="image">
-                                    <img src="images/slide01.jpg">
+                                    <img src="<?= base_url() ?>assets/images/slide01.jpg">
                                 </div>
                             </div>
                             <div class="colR">
@@ -159,7 +159,7 @@
                         <div class="flex">
                             <div class="colL">
                                 <div class="image">
-                                    <img src="images/ed1.jpg">
+                                    <img src="<?= base_url() ?>assets/images/ed1.jpg">
                                 </div>
                             </div>
                             <div class="colR">
@@ -180,7 +180,7 @@
                         <div class="flex">
                             <div class="colL">
                                 <div class="image">
-                                    <img src="images/ed2.jpg">
+                                    <img src="<?= base_url() ?>assets/images/ed2.jpg">
                                 </div>
                             </div>
                             <div class="colR">
@@ -206,16 +206,16 @@
                 <div class="heading"><h1>Our Clients</h1></div>
                 <div class="flexRow flex">
                     <div class="col">
-                        <div class="icon"><img src="images/optuno.svg" alt=""></div>
+                        <div class="icon"><img src="<?= base_url() ?>assets/images/optuno.svg" alt=""></div>
                     </div>
                     <div class="col">
-                        <div class="icon"><img src="images/summit.png" alt=""></div>
+                        <div class="icon"><img src="<?= base_url() ?>assets/images/summit.png" alt=""></div>
                     </div>
                     <div class="col">
-                        <div class="icon"><img src="images/childrens_ministry.png" alt=""></div>
+                        <div class="icon"><img src="<?= base_url() ?>assets/images/childrens_ministry.png" alt=""></div>
                     </div>
                     <div class="col">
-                        <div class="icon"><img src="images/nanohub.svg" alt=""></div>
+                        <div class="icon"><img src="<?= base_url() ?>assets/images/nanohub.svg" alt=""></div>
                     </div>
                 </div>
             </div>
@@ -226,7 +226,7 @@
 
 
     </main>
-    <?php require_once('includes/footer.php'); ?>
+    <?php $this->load->view('includes/footer'); ?>
 </body>
 
 </html>

@@ -3,15 +3,15 @@
 
 <head>
     <title>Our Loan Programs — CCG</title>
-    <?php require_once('includes/site-master.php'); ?>
+    <?php $this->load->view('includes/site-master'); ?>
 </head>
 
 <body id="home-page">
-    <?php require_once('includes/header.php'); ?>
+    <?php $this->load->view('includes/header'); ?>
     <main common services>
 
 
-        <section id="sBanner" style="background-image: url('images/3q.jpg');">
+        <section id="sBanner" style="background-image: url('<?= base_url() ?>assets/images/3q.jpg');">
             <div class="contain">
                 <div class="content">
                     <h1>Loan Programs</h1>
@@ -23,7 +23,7 @@
             <div class="contain">
                 <div class="flexRow flex">
                     <div class="col col1">
-                        <div class="image"><img src="images/loan1.jpg" alt=""></div>
+                        <div class="image"><img src="<?= base_url() ?>assets/images/loan1.jpg" alt=""></div>
                     </div>
                     <div class="col col2">
                         <div class="content">
@@ -41,7 +41,7 @@
             <div class="flex">
                     <div class="col">
                         <div class="image">
-                            <img src="images/11.jpg">
+                            <img src="<?= base_url() ?>assets/images/11.jpg">
                         </div>
                         <div class="cntnt">
                             <div class="cmnHeading">
@@ -59,7 +59,7 @@
                     </div>
                     <div class="col">
                         <div class="image">
-                            <img src="images/13.jpg">
+                            <img src="<?= base_url() ?>assets/images/13.jpg">
                         </div>
                         <div class="cntnt">
                             <div class="cmnHeading">
@@ -77,7 +77,7 @@
                     </div>
                     <div class="col">
                         <div class="image">
-                            <img src="images/12.jpg">
+                            <img src="<?= base_url() ?>assets/images/12.jpg">
                         </div>
                         <div class="cntnt">
                             <div class="cmnHeading">
@@ -103,7 +103,7 @@
                             <div class="col">
                                 <div class="inner">
                                     <!-- <div class="_small-icon">
-                                        <img src="images/home1.png">
+                                        <img src="<?= base_url() ?>assets/images/home1.png">
                                     </div> -->
                                     <h4>Lender Partners</h4>
                                     <ul>                         
@@ -121,7 +121,7 @@
                             <div class="col">
                                 <div class="inner">
                                     <!-- <div class="_small-icon">
-                                        <img src="images/apartment.png">
+                                        <img src="<?= base_url() ?>assets/images/apartment.png">
                                     </div> -->
                                     <h4>Property Types</h4>
                                     <ul>                         
@@ -140,7 +140,7 @@
                             <div class="col">
                                 <div class="inner">
                                     <!-- <div class="_small-icon">
-                                        <img src="images/town.png">
+                                        <img src="<?= base_url() ?>assets/images/town.png">
                                     </div> -->
                                     <h4>Transaction Types</h4>
                                     <ul>                         
@@ -165,16 +165,16 @@
                 <div class="heading"><h1>This Weeks Featured Lenders</h1></div>
                 <div class="flexRow flex">
                     <div class="col">
-                        <div class="icon"><img src="images/optuno.svg" alt=""></div>
+                        <div class="icon"><img src="<?= base_url() ?>assets/images/optuno.svg" alt=""></div>
                     </div>
                     <div class="col">
-                        <div class="icon"><img src="images/summit.png" alt=""></div>
+                        <div class="icon"><img src="<?= base_url() ?>assets/images/summit.png" alt=""></div>
                     </div>
                     <div class="col">
-                        <div class="icon"><img src="images/childrens_ministry.png" alt=""></div>
+                        <div class="icon"><img src="<?= base_url() ?>assets/images/childrens_ministry.png" alt=""></div>
                     </div>
                     <div class="col">
-                        <div class="icon"><img src="images/nanohub.svg" alt=""></div>
+                        <div class="icon"><img src="<?= base_url() ?>assets/images/nanohub.svg" alt=""></div>
                     </div>
                 </div>
             </div>
@@ -182,7 +182,7 @@
         <!-- brands -->
 
     </main>
-    <?php require_once('includes/footer.php'); ?>
+    <?php $this->load->view('includes/footer'); ?>
 </body>
 
 </html>

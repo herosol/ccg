@@ -3,15 +3,15 @@
 
 <head>
     <title>Loan Process — CCG</title>
-    <?php require_once('includes/site-master.php'); ?>
+    <?php $this->load->view('includes/site-master'); ?>
 </head>
 
 <body id="home-page">
-    <?php require_once('includes/header.php'); ?>
+    <?php $this->load->view('includes/header'); ?>
     <main common services>
 
 
-        <section id="sBanner" style="background-image: url('images/3q.jpg');">
+        <section id="sBanner" style="background-image: url('<?= base_url() ?>assets/images/3q.jpg');">
             <div class="contain">
                 <div class="content">
                     <h1>Client Education</h1>
@@ -26,7 +26,7 @@
             <div class="contain">
                 <div class="flexRow flex">
                     <div class="col col1">
-                        <div class="image"><img src="images/lp1.jpg" alt=""></div>
+                        <div class="image"><img src="<?= base_url() ?>assets/images/lp1.jpg" alt=""></div>
                     </div>
                     <div class="col col2">
                         <div class="content">
@@ -42,7 +42,7 @@
         <!-- business -->
 
     <section class="lender_type_1 lenderPro">
-        <div class="image"><img src="images/bggirl.jpg" alt=""></div>
+        <div class="image"><img src="<?= base_url() ?>assets/images/bggirl.jpg" alt=""></div>
         <div class="contain">
            
             <div class="flexRow flex grid-pera">                
@@ -56,7 +56,7 @@
     <section class="banner_loan">
                <div class="contain">
                 <div class="bg_loan">
-                        <div class="imagee_loan"><img src="images/gurl.png" alt=""></div>
+                        <div class="imagee_loan"><img src="<?= base_url() ?>assets/images/gurl.png" alt=""></div>
                         <div class="text">            
                                 <h1 class="heading">Scenario Assessment</h1>           
                                 <p>Debt funds are less regulated so they all have better flexibility to work with buyers and landlords, which can be beneficial to negotiate more favorable rates and terms for your new mortgage. Many funds specialize to go head-to-head with the most aggressive banks and institutions with more flexibility, while others may specialize in bridge loan products for example offering tailored and flexible loan terms with competitive market pricing.</p>
@@ -77,7 +77,7 @@
 					<div class="col">
 						<div class="innerCol">
 							<div class="imgIco">
-								<img src="images/111.png">
+								<img src="<?= base_url() ?>assets/images/111.png">
 							</div>
 							<div class="innerCntnt">
 							   <h3>Review and Analysis</h3>
@@ -88,7 +88,7 @@
 					<div class="col">
 						<div class="innerCol">
 							<div class="imgIco">
-								<img src="images/222.png">
+								<img src="<?= base_url() ?>assets/images/222.png">
 							</div>
 							<div class="innerCntnt">
 							   <h3>Broker Packaging</h3>
@@ -99,7 +99,7 @@
 					<div class="col">
 						<div class="innerCol">
 							<div class="imgIco">
-								<img src="images/333.png">
+								<img src="<?= base_url() ?>assets/images/333.png">
 							</div>
 							<div class="innerCntnt">
 							   <h3>Lender Negotiations</h3>
@@ -110,7 +110,7 @@
 					<div class="col">
 						<div class="innerCol">
 							<div class="imgIco">
-								<img src="images/444.png">
+								<img src="<?= base_url() ?>assets/images/444.png">
 							</div>
 							<div class="innerCntnt">
 							   <h3>Loan Option Selection</h3>
@@ -123,7 +123,7 @@
 			<div class="colR">
 				<div class="inner">
 					<div class="image">
-						<img src="images/7.png">
+						<img src="<?= base_url() ?>assets/images/7.png">
 					</div>
 				</div>
 			</div>
@@ -134,7 +134,7 @@
    
 
     </main>
-    <?php require_once('includes/footer.php'); ?>
+    <?php $this->load->view('includes/footer'); ?>
 </body>
 
 </html>
