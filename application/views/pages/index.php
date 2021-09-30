@@ -19,7 +19,7 @@
                     </div>
                     <div class="cntnt">
                         <h1><span>Hømepark</span>  Elite Residences</h1>
-                        <h2>We build your dream house</h2>
+                        <h2>We build your dream houseeee</h2>
                         <a href="contact.php" class="webBtn blankBtn">Contact Now</a>
                     </div>
                 </div>
