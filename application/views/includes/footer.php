@@ -3,13 +3,14 @@
         <div class="contain">
             <div class="upside">
                 <h3>Subscribe with us<span>To Get Regular updates on events, conferences, workshops, trainings and monthly reports on institutions, please subscribe with us.</span></h3>
-                <form action="" method="post">
-                        <label for="email">Stay up to date with the latest news and deals!</label>
-                        <div class="inside">
-                            <input type="text" name="email" id="email" class="txtBox" placeholder="Enter your email address">
-                            <button type="submit" class="webBtn blueBtn">Subscribe!</button>
-                        </div>
-                    </form>
+                <form action="<?=base_url()?>newsletter" method="post" id="newsletterFrm" class="frmAjax">
+                    <label for="email">Stay up to date with the latest news and deals!</label>
+                    <div class="alertMsg" style="display:none"></div>
+                    <div class="inside">
+                        <input type="text" name="email" id="email" class="txtBox" placeholder="Enter your email address">
+                        <button type="submit" class="webBtn blueBtn">Subscribe!</button>
+                    </div>
+                </form>
             </div>
             <div class="flexRow flex">
                 <div class="col col1">
@@ -43,23 +44,23 @@
                 <div class="col col4">
                     <h3>Contact Info</h3>
                     <ul class="lst">
-                        <li><a href="?">Mail : info@Creativecommercialgroup</a></li>
-                        <li><a href="?">Call : +1 972 500 4545</a></li>
-                        <li>Address : street  # 12 , Seven Kings Road, Ilford, Berlin IG3 8BU</li>
+                        <li><a href="mailto:<?= $site_settings->site_email ?>">Mail : <?= $site_settings->site_email ?></a></li>
+                        <li><a href="tel: <?= $site_settings->site_phone ?>">Call : <?= $site_settings->site_phone ?></a></li>
+                        <li>Address : <?= $site_settings->site_address ?></li>
                     </ul>
                 </div>
             </div>
             <div class="btmBlk flex">
                 <ul class="social flex">
-                        <li><a href="?" target="_blank" class=""><i class="fi-facebook"></i></a></li>
-                        <li><a href="?" target="_blank" class=""><i class="fi-twitter"></i></a></li>
-                        <li><a href="?" target="_blank" class=""><i class="fi-instagram"></i></a></li>
-                        <li><a href="?" target="_blank" class=""><i class="fi-linkedin"></i></a></li>
+                        <li><a href="<?= makeExternalUrl($site_settings->site_facebook) ?>" target="_blank" class=""><i class="fi-facebook"></i></a></li>
+                        <li><a href="<?= makeExternalUrl($site_settings->site_twitter) ?>" target="_blank" class=""><i class="fi-twitter"></i></a></li>
+                        <li><a href="<?= makeExternalUrl($site_settings->site_instagram) ?>" target="_blank" class=""><i class="fi-instagram"></i></a></li>
+                        <li><a href="<?= makeExternalUrl($site_settings->site_linkedin) ?>" target="_blank" class=""><i class="fi-linkedin"></i></a></li>
                     </ul>
                 
             </div>
             <div class="copyright text-center">
-                <p>© 2021 - Creative Commercial Group | All rights reserved</p>
+                <p><?= $site_settings->site_copyright ?></p>
             </div>
         </div>
     </div>
@@ -69,3 +70,5 @@
 
 <!-- Main Js -->
 <script type="text/javascript" src="<?=base_url()?>assets/js/main.js"></script>
+<script type="text/javascript" src="<?=base_url()?>assets/js/custom.js"></script>
+<script type="text/javascript" src="<?=base_url()?>assets/js/custom-validation.js"></script>

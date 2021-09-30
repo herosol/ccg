@@ -34,6 +34,53 @@ class Pages extends MY_Controller
 
     function contact()
     {
+        if ($vals = $this->input->post()) {
+            $res = array();
+            $res['hide_msg'] = 0;
+            $res['scroll_to_msg'] = 0;
+            $res['status'] = 0;
+            $res['frm_reset'] = 0;
+            $res['redirect_url'] = 0;
+
+            $this->form_validation->set_rules('name', 'Name', 'required');
+            $this->form_validation->set_rules('email', 'Email', 'required|valid_email');
+            $this->form_validation->set_rules('subject', 'Subject', 'required');
+            $this->form_validation->set_rules('phone', 'Phone Number', 'required');
+            $this->form_validation->set_rules('msg', 'Message', 'required');
+            if ($this->form_validation->run() === FALSE)
+            {
+                $res['status'] = 0;
+                $res['msg']=validation_errors();
+            }
+            else
+            {
+                $vals['msg'] = html_escape($this->input->post('msg'));
+                $vals['created_date']=date('Y-m-d H:i:s');
+                $vals['status']=0;
+                $this->master->save('contact',$vals);
+                $vals['site_email'] = $this->data['site_settings']->site_email;
+                $vals['site_noreply_email'] = $this->data['site_settings']->site_noreply_email;
+                $okmsg = send_email($vals);
+                if ($okmsg) {
+                    $res['msg'] = 'Message send sucessfully!';
+                    $res['status'] = 1;
+                    $res['frm_reset'] = 1;
+                    $res['hide_msg'] = 1;
+                    // $res['redirect_url'] = site_url('contact-us');
+                } else {
+                    $res['msg'] = 'Message send sucessfully!';
+                    $res['status'] = 1;
+                    $res['frm_reset'] = 1;
+                    $res['hide_msg'] = 1;
+                }
+                /*}else{
+                    $res['msg'] = showMsg('error','Please verify that you are not robot!');
+                    $res['redirect_url'] = site_url('contact-us');
+                }*/
+            }
+            exit(json_encode($res));
+        }
+
         $this->load->view('pages/contact', $this->data);
     }
 
@@ -69,7 +116,19 @@ class Pages extends MY_Controller
 
     function faq()
     {
-        $this->load->view('pages/faq', $this->data);
+        $meta = $this->page->getMetaContent('faq');
+		$this->data['page_title'] = $meta->page_name;
+		$this->data['slug'] = $meta->slug;
+		$data = $this->page->getPageContent('faq');
+		if($data){
+			$this->data['content']   = unserialize($data->code);
+			$this->data['meta_desc'] = json_decode($meta->content);
+			$this->data['faqs'] = $this->master->get_data_rows('faqs', ['status'=>'1'], 'ASC', 'sort_order');
+
+			$this->load->view('pages/faq',$this->data);
+		}else{
+			show_404();
+		}
     }
 
 }

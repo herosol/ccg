@@ -3,7 +3,7 @@
     <div class="contain-fluid">
         <div class="logo ease">
             <a href="<?= base_url() ?>">
-                <img src="<?=base_url()?>assets/images/logo.png" alt="">
+                <img src="<?= base_url().SITE_IMAGES.'images/'.$site_settings->site_logo ?>" alt="">
             </a>
         </div>
         <div class="toggle dim-zindex"><span></span></div>
@@ -72,10 +72,10 @@
                 
                 <li class="soccial">
                     <ul class="flex">
-                        <li><a href="#"><i class="fi-facebook"></i></a></li>
-                        <li><a href="#"><i class="fi-twitter"></i></a></li>
-                        <li><a href="#"><i class="fi-instagram"></i></a></li>
-                        <li><a href="#"><i class="fi-linkedin"></i></a></li>
+                        <li><a href="<?= makeExternalUrl($site_settings->site_facebook) ?>"><i class="fi-facebook"></i></a></li>
+                        <li><a href="<?= makeExternalUrl($site_settings->site_twitter) ?>"><i class="fi-twitter"></i></a></li>
+                        <li><a href="<?= makeExternalUrl($site_settings->site_instagram) ?>"><i class="fi-instagram"></i></a></li>
+                        <li><a href="<?= makeExternalUrl($site_settings->site_linkedin) ?>"><i class="fi-linkedin"></i></a></li>
                     </ul>
                 </li>
             </ul>

@@ -33,12 +33,6 @@
                     <span class="title">Contact</span><span class="badge badge-success"><?=new_messages()?></span>
                 </a>
             </li>
-            <li class="opened<?= $this->uri->segment('2') == 'testimonials' ? ' active' : '' ?>">
-                <a href="<?= site_url(ADMIN.'/testimonials') ?>">
-                    <i class="fa fa-comments"></i>
-                    <span class="title">Testimonials</span>
-                </a>
-            </li>
             <li class="opened <?= ($this->uri->segment(2) == 'faq') ? 'active' : '' ?>">
                 <a href="<?= site_url(ADMIN.'/faq') ?>">
                     <i class="fa fa-th-list"></i>
@@ -51,16 +45,40 @@
                     <span class="title">Manage Pages</span>
                 </a>
                 <ul>
-                    <li class=" <?= ($this->uri->segment(3) == 'landing') ? ' active' : '' ?>">
-                        <a href="<?= site_url(ADMIN.'/sitecontent/landing') ?>">
-                            <i class="entypo-doc-text  "></i>
-                            <span class="title">Landing</span>
-                        </a>
-                    </li>
                     <li class=" <?= ($this->uri->segment(3) == 'home') ? ' active' : '' ?>">
                         <a href="<?= site_url(ADMIN.'/sitecontent/home') ?>">
                             <i class="entypo-doc-text  "></i>
                             <span class="title">Home</span>
+                        </a>
+                    </li>
+                    <li class=" <?= ($this->uri->segment(3) == 'lender_types') ? ' active' : '' ?>">
+                        <a href="<?= site_url(ADMIN.'/sitecontent/lender_types') ?>">
+                            <i class="entypo-doc-text  "></i>
+                            <span class="title">Lender Types</span>
+                        </a>
+                    </li>
+                    <li class=" <?= ($this->uri->segment(3) == 'mortage_types') ? ' active' : '' ?>">
+                        <a href="<?= site_url(ADMIN.'/sitecontent/mortage_types') ?>">
+                            <i class="entypo-doc-text  "></i>
+                            <span class="title">Mortage Types</span>
+                        </a>
+                    </li>
+                    <li class=" <?= ($this->uri->segment(3) == 'key_concepts') ? ' active' : '' ?>">
+                        <a href="<?= site_url(ADMIN.'/sitecontent/key_concepts') ?>">
+                            <i class="entypo-doc-text  "></i>
+                            <span class="title">Key Concepts</span>
+                        </a>
+                    </li>
+                    <li class=" <?= ($this->uri->segment(3) == 'loan_process') ? ' active' : '' ?>">
+                        <a href="<?= site_url(ADMIN.'/sitecontent/loan_process') ?>">
+                            <i class="entypo-doc-text  "></i>
+                            <span class="title">Loan Process</span>
+                        </a>
+                    </li>
+                    <li class=" <?= ($this->uri->segment(3) == 'qualification') ? ' active' : '' ?>">
+                        <a href="<?= site_url(ADMIN.'/sitecontent/qualification') ?>">
+                            <i class="entypo-doc-text  "></i>
+                            <span class="title">Qualification</span>
                         </a>
                     </li>
                     <li class=" <?= ($this->uri->segment(3) == 'about') ? ' active' : '' ?>">

@@ -4707,3 +4707,9 @@ video[poster] {
 .white ul li i {
   background: #004890;
 }
+
+.error {
+  border-color: Red !important;
+  border-style: solid;
+  border-width: 1px;
+}

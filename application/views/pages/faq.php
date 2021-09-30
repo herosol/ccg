@@ -28,36 +28,14 @@
                 </div>
                 <div class="faqBox">
                     <div class="faqLst">
-                        <div class="faqBlk">
-                            <h5>Lorem ipsum dolor sit, amet consectetur adipisicing elit?</h5>
-                            <div class="txt">
-                                <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt.</p>
+                        <?php foreach($faqs as $index => $faq): ?>
+                            <div class="faqBlk">
+                                <h5><?=$faq->question?></h5>
+                                <div class="txt">
+                                <?=$faq->answer?>
+                                </div>
                             </div>
-                        </div>
-                        <div class="faqBlk">
-                            <h5>Obcaecati laborum architecto neque possimus?</h5>
-                            <div class="txt">
-                                <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt.</p>
-                            </div>
-                        </div>
-                        <div class="faqBlk">
-                            <h5>Deleniti illum ex numquam eos laudantium?</h5>
-                            <div class="txt">
-                                <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt.</p>
-                            </div>
-                        </div>
-                        <div class="faqBlk">
-                            <h5>Molestias quidem, maiores reiciendis sint?</h5>
-                            <div class="txt">
-                                <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt.</p>
-                            </div>
-                        </div>
-                        <div class="faqBlk">
-                            <h5>Zusto harum temporibus vel, rem numquam quia?</h5>
-                            <div class="txt">
-                                <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt.</p>
-                            </div>
-                        </div>
+                        <?php endforeach; ?>
                     </div>
                 </div>
             </div>

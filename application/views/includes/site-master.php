@@ -3,7 +3,7 @@
 <meta name="title" content="Creative Commercial Group">
 <meta name="description" content="We Protect The World's Most Sensitive Data">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://www.herosolutions.com.pk/nimra/CCG/index.php">
+<meta property="og:url" content="<?=base_url()?>">
 <meta property="og:title" content="Creative Commercial Group">
 <meta property="og:description" content="We Protect The World's Most Sensitive Data">
 <meta property="og:image" content="https://www.herosolutions.com.pk/nimra/CCG/images/thumbnail.jpg">
@@ -186,4 +186,4 @@ $('.owl-services').owlCarousel({
 
 
 <!-- Favicon -->
-<link type="image/png" rel="icon" href="images/favicon.png">
+<link type="image/png" rel="icon" href="<?= base_url().SITE_IMAGES.'/images/'.$site_settings->site_icon ?>">

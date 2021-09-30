@@ -47,8 +47,9 @@
                             </div>
                         </li>
                 </ul>
-                <form action="" method="post" id="frmSetting" class="frmAjax">
+                <form action="" method="post" id="frmContact" class="frmAjax">
                     <h2 class="heading text-center">START CONVERSATION</h2>
+                    <div class="alertMsg" style="display:none"></div>
                     <div class="row formRow">
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 col-xx-6">
                             <div class="txtGrp">
@@ -82,7 +83,6 @@
                         </div>
                     </div>
                     <div class="bTn formBtn text-center"><button type="submit" class="webBtn blockBtn">Submit <i class="spinner hidden"></i></button></div>
-                    <div class="alertMsg" style="display:none"></div>
                 </form>
             </div>
         </section>

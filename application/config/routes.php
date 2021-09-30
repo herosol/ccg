@@ -76,4 +76,7 @@ $route['loan-process']     = 'pages/loan_process';
 $route['terms-to-know']    = 'pages/terms_and_conditions';
 $route['faqs']             = 'pages/faq';
 
+##AJAX
+$route['newsletter']       = 'index/newsletter';
+
 

@@ -46,6 +46,231 @@ class Sitecontent extends Admin_Controller
         $this->load->view(ADMIN . '/includes/siteMaster', $this->data);
     }
 
+    public function lender_types()
+    {
+        $this->data['enable_editor'] = TRUE;
+        $this->data['pageView'] = ADMIN . '/site_lender_types';
+        if ($vals = $this->input->post()) {
+            $content_row = $this->master->getRow($this->table_name, array('ckey' => 'lender_types'));
+            $content_row = unserialize($content_row->code);
+
+            if(!is_array($content_row))
+                $content_row = array();
+            
+            for($i = 1; $i <= 7; $i++) {
+                if (isset($_FILES["image".$i]["name"]) && $_FILES["image".$i]["name"] != "") {
+                    
+                    $image = upload_file(UPLOAD_PATH.'images/', 'image'.$i);
+                    generate_thumb(UPLOAD_PATH.'images/',UPLOAD_PATH.'images/',$image['file_name'],600,'thumb_');
+                    if(!empty($image['file_name'])){
+                        if(isset($content_row['image'.$i]))
+                            $this->remove_file(UPLOAD_PATH."images/".$content_row['image'.$i]);
+                            $this->remove_file(UPLOAD_PATH."images/thumb_".$content_row['image'.$i]);
+                        $vals['image'.$i] = $image['file_name'];
+                    }
+                }
+            }
+
+            $data = serialize(array_merge($content_row, $vals));
+            $this->master->save($this->table_name,array('code' => $data),'ckey', 'lender_types');
+            setMsg('success', 'Settings updated successfully !');
+            redirect(ADMIN . "/sitecontent/lender_types");
+            exit;
+        }
+
+        $this->data['row'] = $this->master->getRow($this->table_name, array('ckey' => 'lender_types'));
+        $this->data['row'] = unserialize($this->data['row']->code);
+        $this->load->view(ADMIN . '/includes/siteMaster', $this->data);
+    }
+
+    public function qualification()
+    {
+        $this->data['enable_editor'] = TRUE;
+        $this->data['pageView'] = ADMIN . '/site_qualification';
+        $id = $this->uri->segment(4);
+        if(isset($id))
+        {
+            $this->data['record'] = $this->master->getRow('page_cards', ['id'=> $id]);
+        }
+        $this->data['id'] = $id;
+
+        if ($vals = $this->input->post()) {
+            $content_row = $this->master->getRow($this->table_name, array('ckey' => 'qualification'));
+            $content_row = unserialize($content_row->code);
+
+            if(!is_array($content_row))
+                $content_row = array();
+            
+            for($i = 1; $i <= 7; $i++) {
+                if (isset($_FILES["image".$i]["name"]) && $_FILES["image".$i]["name"] != "") {
+                    
+                    $image = upload_file(UPLOAD_PATH.'images/', 'image'.$i);
+                    generate_thumb(UPLOAD_PATH.'images/',UPLOAD_PATH.'images/',$image['file_name'],600,'thumb_');
+                    if(!empty($image['file_name'])){
+                        if(isset($content_row['image'.$i]))
+                            $this->remove_file(UPLOAD_PATH."images/".$content_row['image'.$i]);
+                            $this->remove_file(UPLOAD_PATH."images/thumb_".$content_row['image'.$i]);
+                        $vals['image'.$i] = $image['file_name'];
+                    }
+                }
+            }
+
+            $data = serialize(array_merge($content_row, $vals));
+            $this->master->save($this->table_name,array('code' => $data),'ckey', 'qualification');
+            setMsg('success', 'Settings updated successfully !');
+            redirect(ADMIN . "/sitecontent/qualification");
+            exit;
+        }
+        
+        $this->data['cards'] = $this->master->getRows('page_cards', ['page'=> 'qualification']);
+        $this->data['row'] = $this->master->getRow($this->table_name, array('ckey' => 'qualification'));
+        $this->data['row'] = unserialize($this->data['row']->code);
+        $this->load->view(ADMIN . '/includes/siteMaster', $this->data);
+    }
+
+    public function key_concepts()
+    {
+        $this->data['enable_editor'] = TRUE;
+        $this->data['pageView'] = ADMIN . '/site_key_concepts';
+        $id = $this->uri->segment(4);
+        if(isset($id))
+        {
+            $this->data['record'] = $this->master->getRow('page_cards', ['id'=> $id]);
+        }
+        $this->data['id'] = $id;
+
+        if ($vals = $this->input->post()) {
+            $content_row = $this->master->getRow($this->table_name, array('ckey' => 'key_concepts'));
+            $content_row = unserialize($content_row->code);
+
+            if(!is_array($content_row))
+                $content_row = array();
+            
+            for($i = 1; $i <= 7; $i++) {
+                if (isset($_FILES["image".$i]["name"]) && $_FILES["image".$i]["name"] != "") {
+                    
+                    $image = upload_file(UPLOAD_PATH.'images/', 'image'.$i);
+                    generate_thumb(UPLOAD_PATH.'images/',UPLOAD_PATH.'images/',$image['file_name'],600,'thumb_');
+                    if(!empty($image['file_name'])){
+                        if(isset($content_row['image'.$i]))
+                            $this->remove_file(UPLOAD_PATH."images/".$content_row['image'.$i]);
+                            $this->remove_file(UPLOAD_PATH."images/thumb_".$content_row['image'.$i]);
+                        $vals['image'.$i] = $image['file_name'];
+                    }
+                }
+            }
+
+            $data = serialize(array_merge($content_row, $vals));
+            $this->master->save($this->table_name,array('code' => $data),'ckey', 'key_concepts');
+            setMsg('success', 'Settings updated successfully !');
+            redirect(ADMIN . "/sitecontent/key_concepts");
+            exit;
+        }
+        
+        $this->data['cards'] = $this->master->getRows('page_cards', ['page'=> 'key_concepts']);
+        $this->data['row'] = $this->master->getRow($this->table_name, array('ckey' => 'key_concepts'));
+        $this->data['row'] = unserialize($this->data['row']->code);
+        $this->load->view(ADMIN . '/includes/siteMaster', $this->data);
+    }
+
+    public function mortage_types()
+    {
+        $this->data['enable_editor'] = TRUE;
+        $this->data['pageView'] = ADMIN . '/site_mortage_type';
+        $id = $this->uri->segment(4);
+        if(isset($id))
+        {
+            $this->data['record'] = $this->master->getRow('page_cards', ['id'=> $id]);
+        }
+        $this->data['id'] = $id;
+
+        if ($vals = $this->input->post()) {
+            $content_row = $this->master->getRow($this->table_name, array('ckey' => 'mortage_types'));
+            $content_row = unserialize($content_row->code);
+
+            if(!is_array($content_row))
+                $content_row = array();
+            
+            for($i = 1; $i <= 7; $i++) {
+                if (isset($_FILES["image".$i]["name"]) && $_FILES["image".$i]["name"] != "") {
+                    
+                    $image = upload_file(UPLOAD_PATH.'images/', 'image'.$i);
+                    generate_thumb(UPLOAD_PATH.'images/',UPLOAD_PATH.'images/',$image['file_name'],600,'thumb_');
+                    if(!empty($image['file_name'])){
+                        if(isset($content_row['image'.$i]))
+                            $this->remove_file(UPLOAD_PATH."images/".$content_row['image'.$i]);
+                            $this->remove_file(UPLOAD_PATH."images/thumb_".$content_row['image'.$i]);
+                        $vals['image'.$i] = $image['file_name'];
+                    }
+                }
+            }
+
+            $data = serialize(array_merge($content_row, $vals));
+            $this->master->save($this->table_name,array('code' => $data),'ckey', 'mortage_types');
+            setMsg('success', 'Settings updated successfully !');
+            redirect(ADMIN . "/sitecontent/mortage_types");
+            exit;
+        }
+        
+        $this->data['cards'] = $this->master->getRows('page_cards', ['page'=> 'mortage_types'], '', '', 'ASC', 'section');
+        $this->data['row'] = $this->master->getRow($this->table_name, array('ckey' => 'mortage_types'));
+        $this->data['row'] = unserialize($this->data['row']->code);
+        $this->load->view(ADMIN . '/includes/siteMaster', $this->data);
+    }
+    
+    public function loan_process()
+    {
+        $this->data['enable_editor'] = TRUE;
+        $this->data['pageView'] = ADMIN . '/site_loan_process';
+        if ($vals = $this->input->post()) {
+            $content_row = $this->master->getRow($this->table_name, array('ckey' => 'loan_process'));
+            $content_row = unserialize($content_row->code);
+
+            if(!is_array($content_row))
+                $content_row = array();
+            
+            for($i = 1; $i <= 2; $i++) {
+                if (isset($_FILES["image".$i]["name"]) && $_FILES["image".$i]["name"] != "") {
+                    
+                    $image = upload_file(UPLOAD_PATH.'images/', 'image'.$i);
+                    generate_thumb(UPLOAD_PATH.'images/',UPLOAD_PATH.'images/',$image['file_name'],600,'thumb_');
+                    if(!empty($image['file_name'])){
+                        if(isset($content_row['image'.$i]))
+                            $this->remove_file(UPLOAD_PATH."images/".$content_row['image'.$i]);
+                            $this->remove_file(UPLOAD_PATH."images/thumb_".$content_row['image'.$i]);
+                        $vals['image'.$i] = $image['file_name'];
+                    }
+                }
+            }
+
+            for($i = 1; $i <= 4; $i++) {
+                if (isset($_FILES["olp_card_image".$i]["name"]) && $_FILES["olp_card_image".$i]["name"] != "") {
+                    
+                    $image = upload_file(UPLOAD_PATH.'images/', 'olp_card_image'.$i);
+                    generate_thumb(UPLOAD_PATH.'images/',UPLOAD_PATH.'images/',$image['file_name'],600,'thumb_');
+                    if(!empty($image['file_name'])){
+                        if(isset($content_row['olp_card_image'.$i]))
+                            $this->remove_file(UPLOAD_PATH."images/".$content_row['olp_card_image'.$i]);
+                            $this->remove_file(UPLOAD_PATH."images/thumb_".$content_row['olp_card_image'.$i]);
+                        $vals['olp_card_image'.$i] = $image['file_name'];
+                    }
+                }
+            }
+
+            $data = serialize(array_merge($content_row, $vals));
+            $this->master->save($this->table_name,array('code' => $data),'ckey', 'loan_process');
+            setMsg('success', 'Settings updated successfully !');
+            redirect(ADMIN . "/sitecontent/loan_process");
+            exit;
+        }
+
+        $this->data['row'] = $this->master->getRow($this->table_name, array('ckey' => 'loan_process'));
+        $this->data['row'] = unserialize($this->data['row']->code);
+        $this->load->view(ADMIN . '/includes/siteMaster', $this->data);
+    }   
+
+    
+
     public function landing()
     {
         $this->data['enable_editor'] = TRUE;
@@ -300,7 +525,8 @@ class Sitecontent extends Admin_Controller
 
 
 
-    function terms_conditions() {
+    function terms_conditions() 
+    {
         $this->data['enable_editor'] = TRUE;
         $this->data['pageView'] = ADMIN . '/site_terms_conditions';
         if ($vals = $this->input->post()) {
@@ -529,6 +755,174 @@ class Sitecontent extends Admin_Controller
         $this->load->view(ADMIN . '/includes/siteMaster', $this->data);
     }
 
+    public function save_affiliate()
+    {
+        
+        if ($vals = $this->input->post())
+        {
+            $id = $this->input->post('id');
+            if (isset($_FILES["image"]["name"]) && $_FILES["image"]["name"] != "")
+            {
+                $image = upload_file(UPLOAD_PATH.'images', 'image');
+                if (!empty($image['file_name'])) 
+                {
+                    $vals['image'] = $image['file_name'];
+                }
+                else
+                {
+                    setMsg('error', 'Please upload a valid image file >> ' . strip_tags($image['error']));
+                    redirect(ADMIN . '/sitecontent/qualification', 'refresh');
+                    exit;
+                }
+            }
+
+            if($id != '')
+            {
+                if(isset($_FILES["image"]["name"]) && $_FILES["image"]["name"] != "")
+                {
+                    $data = 
+                    [
+                        'image' => $vals['image'],
+                        'heading' => $vals['first_heading'],
+                        'description'  => $vals['first_detail']
+                    ];
+                }
+                else
+                {
+                    $data = 
+                    [
+                        'heading' => $vals['first_heading'],
+                        'description'  => $vals['first_detail']
+                    ];
+                }
+            }
+            else
+            {
+                $data = 
+                [
+                    'image' => $vals['image'],
+                    'heading' => $vals['first_heading'],
+                    'description'  => $vals['first_detail']
+                ];
+            }
+
+            $data['page'] = 'qualification';
+            $this->master->save('page_cards', $data, 'id', $id);
+            setMsg('success', 'Card saved successfully !');
+            redirect(ADMIN . "/sitecontent/qualification");
+            exit;
+        }
+    }
+
+    public function save_key_concept_card()
+    {
+        
+        if ($vals = $this->input->post())
+        {
+            $id = $this->input->post('id');
+            if (isset($_FILES["image"]["name"]) && $_FILES["image"]["name"] != "")
+            {
+                $image = upload_file(UPLOAD_PATH.'images', 'image');
+                if (!empty($image['file_name'])) 
+                {
+                    $vals['image'] = $image['file_name'];
+                }
+                else
+                {
+                    setMsg('error', 'Please upload a valid image file >> ' . strip_tags($image['error']));
+                    redirect(ADMIN . '/sitecontent/key_concepts', 'refresh');
+                    exit;
+                }
+            }
+
+            if($id != '')
+            {
+                if(isset($_FILES["image"]["name"]) && $_FILES["image"]["name"] != "")
+                {
+                    $data = 
+                    [
+                        'image' => $vals['image'],
+                        'heading' => $vals['first_heading'],
+                        'description'  => $vals['first_detail']
+                    ];
+                }
+                else
+                {
+                    $data = 
+                    [
+                        'heading' => $vals['first_heading'],
+                        'description'  => $vals['first_detail']
+                    ];
+                }
+            }
+            else
+            {
+                $data = 
+                [
+                    'image' => $vals['image'],
+                    'heading' => $vals['first_heading'],
+                    'description'  => $vals['first_detail']
+                ];
+            }
+
+            $data['page'] = 'key_concepts';
+            $this->master->save('page_cards', $data, 'id', $id);
+            setMsg('success', 'Card saved successfully !');
+            redirect(ADMIN . "/sitecontent/key_concepts");
+            exit;
+        }
+    }
+    
+
+    public function save_mortage_type_loan_stage()
+    {
+        
+        if ($vals = $this->input->post())
+        {
+            $id = $this->input->post('id');
+            $data = 
+            [
+                'heading' => $vals['first_heading'],
+                'description'  => $vals['first_detail'],
+                'section' => $vals['section']
+            ];
+
+            $data['page']    = 'mortage_types';
+            $this->master->save('page_cards', $data, 'id', $id);
+            setMsg('success', 'Card saved successfully !');
+            redirect(ADMIN . "/sitecontent/mortage_types");
+            exit;
+        }
+    }
+
+
+    function delete_qualification($id)
+    {
+        $id = intval($id);
+        $this->master->delete_where('page_cards', ['id'=> $id]);
+        setMsg('success', 'Qualification card has been deleted successfully.');
+        redirect(ADMIN . "/sitecontent/qualification");
+        exit;
+    }
+
+    function delete_mortage_types($id)
+    {
+        $id = intval($id);
+        $this->master->delete_where('page_cards', ['id'=> $id]);
+        setMsg('success', 'Mortage Types card has been deleted successfully.');
+        redirect(ADMIN . "/sitecontent/mortage_types");
+        exit;
+    }
+
+    function delete_key_concepts($id)
+    {
+        $id = intval($id);
+        $this->master->delete_where('page_cards', ['id'=> $id]);
+        setMsg('success', 'Mortage Types card has been deleted successfully.');
+        redirect(ADMIN . "/sitecontent/key_concepts");
+        exit;
+    }
+    
 
     public function delete()
     {
