@@ -9,12 +9,33 @@ class Pages extends MY_Controller
     
     function about_us()
     {
-        $this->load->view('pages/about', $this->data);
+        $meta = $this->page->getMetaContent('about_us');
+		$this->data['page_title'] = $meta->page_name;
+		$this->data['slug'] = $meta->slug;
+		$data = $this->page->getPageContent('about_us');
+		if($data){
+			$this->data['content']   = unserialize($data->code);
+			$this->data['meta_desc'] = json_decode($meta->content);
+            $this->data['cards1'] = $this->master->get_data_rows('team', ['status'=>'1'], 'DESC', 'id');
+            $this->load->view('pages/about', $this->data);
+		}else{
+			show_404();
+		}
     }
 
     function load_programs()
     {
-        $this->load->view('functional/loan', $this->data);
+        $meta = $this->page->getMetaContent('loan_programs');
+		$this->data['page_title'] = $meta->page_name;
+		$this->data['slug'] = $meta->slug;
+		$data = $this->page->getPageContent('loan_programs');
+		if($data){
+			$this->data['content']   = unserialize($data->code);
+			$this->data['meta_desc'] = json_decode($meta->content);
+            $this->load->view('functional/loan', $this->data);
+		}else{
+			show_404();
+		}
     }
 
     function rate_calculator()
@@ -81,37 +102,112 @@ class Pages extends MY_Controller
             exit(json_encode($res));
         }
 
-        $this->load->view('pages/contact', $this->data);
+        $meta = $this->page->getMetaContent('contact');
+		$this->data['page_title'] = $meta->page_name;
+		$this->data['slug'] = $meta->slug;
+		$data = $this->page->getPageContent('contact');
+		if($data){
+			$this->data['content']   = unserialize($data->code);
+			$this->data['meta_desc'] = json_decode($meta->content);
+            $this->load->view('pages/contact', $this->data);
+		}else{
+			show_404();
+		}
     }
 
     function lender_types()
     {
-        $this->load->view('functional/lender-types', $this->data);
+        $meta = $this->page->getMetaContent('lender-types');
+		$this->data['page_title'] = $meta->page_name;
+		$this->data['slug'] = $meta->slug;
+		$data = $this->page->getPageContent('lender_types');
+		if($data){
+			$this->data['content']   = unserialize($data->code);
+			$this->data['meta_desc'] = json_decode($meta->content);
+            $this->load->view('functional/lender-types', $this->data);
+		}else{
+			show_404();
+		}
     }
 
     function mortage_types()
     {
-        $this->load->view('functional/mortage-types', $this->data);
+        $meta = $this->page->getMetaContent('mortage-types');
+		$this->data['page_title'] = $meta->page_name;
+		$this->data['slug'] = $meta->slug;
+		$data = $this->page->getPageContent('mortage_types');
+		if($data){
+			$this->data['content']   = unserialize($data->code);
+			$this->data['meta_desc'] = json_decode($meta->content);
+            $this->data['cards1'] = $this->master->get_data_rows('page_cards', ['page'=>'mortage_types', 'section'=> 'loan_stage'], 'DESC', 'id');
+            $this->data['cards2'] = $this->master->get_data_rows('page_cards', ['page'=>'mortage_types', 'section'=> 'property_type'], 'DESC', 'id');
+            $this->load->view('functional/mortage-types', $this->data);
+		}else{
+			show_404();
+		}   
     }
 
     function key_concepts()
     {
-        $this->load->view('functional/key_concepts', $this->data);
+        $meta = $this->page->getMetaContent('key_concepts');
+		$this->data['page_title'] = $meta->page_name;
+		$this->data['slug'] = $meta->slug;
+		$data = $this->page->getPageContent('key_concepts');
+		if($data){
+			$this->data['content']   = unserialize($data->code);
+			$this->data['meta_desc'] = json_decode($meta->content);
+            $this->data['cards1'] = $this->master->get_data_rows('page_cards', ['page'=>'key_concepts'], 'ASC', 'id');
+            $this->load->view('functional/key_concepts', $this->data);
+		}else{
+			show_404();
+		}  
     }
 
     function qualification()
     {
-        $this->load->view('pages/qualification', $this->data);
+        $meta = $this->page->getMetaContent('qualification');
+		$this->data['page_title'] = $meta->page_name;
+		$this->data['slug'] = $meta->slug;
+		$data = $this->page->getPageContent('qualification');
+		if($data){
+			$this->data['content']   = unserialize($data->code);
+			$this->data['meta_desc'] = json_decode($meta->content);
+            $this->data['cards1'] = $this->master->get_data_rows('page_cards', ['page'=>'qualification'], 'ASC', 'id');
+            $this->load->view('pages/qualification', $this->data);
+		}else{
+			show_404();
+		}  
     }
 
     function loan_process()
     {
-        $this->load->view('functional/lona_P', $this->data);
+        $meta = $this->page->getMetaContent('loan_process');
+		$this->data['page_title'] = $meta->page_name;
+		$this->data['slug'] = $meta->slug;
+		$data = $this->page->getPageContent('loan_process');
+		if($data){
+			$this->data['content']   = unserialize($data->code);
+			$this->data['meta_desc'] = json_decode($meta->content);
+            $this->load->view('functional/lona_P', $this->data);
+		}else{
+			show_404();
+		}  
     }
 
     function terms_and_conditions()
     {
-        $this->load->view('pages/terms-and-conditions', $this->data);
+        $meta = $this->page->getMetaContent('terms_and_conditions');
+		$this->data['page_title'] = $meta->page_name;
+		$this->data['slug'] = $meta->slug;
+		$data = $this->page->getPageContent('terms_conditions');
+		if($data){
+			$this->data['content']     = unserialize($data->code);
+			$this->data['full_code']   = $data->full_code;
+			$this->data['meta_desc'] = json_decode($meta->content);
+            $this->load->view('pages/terms-and-conditions', $this->data);
+		}else{
+			show_404();
+		}  
     }
 
     function faq()

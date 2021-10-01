@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Contact us — CCG</title>
+    <title><?=$page_title?> — <?=$site_settings->site_name?></title>
     <?php $this->load->view('includes/site-master'); ?>
 </head>
 
@@ -14,8 +14,8 @@
         <section id="sBanner" style="background-image: url('<?= base_url() ?>assets/images/3q.jpg');">
             <div class="contain">
                 <div class="content">
-                    <h1>Ask any question</h1>
-                    <h2 class="regular">Come Know and Work With Us</h2>
+                    <h1><?=$content['heading']?></h1>
+                    <h2 class="regular"><?=$content['detail']?></h2>
                 </div>
             </div>
         </section>
@@ -25,30 +25,30 @@
         <section id="contact">
             <div class="contain">
                 <div class="content text-center">
-                    <h1 class="heading">CONTACT US NOW</h1>
+                    <h1 class="heading"><?=$content['heading1']?></h1>
                 </div>
                 <ul class="infoLst flex text-center">
                         <li>
                             <div class="inner">
-                                <div class="icon"><img src="<?= base_url() ?>assets/images/icon-map-marker.svg" alt=""></div>
-                                <span>1934 Contra Costa Blvd.<br />Pleasant Hill, CA 94523</span>
+                                <div class="icon"><img src="<?= !empty($content['image1']) ? getImageSrc(UPLOAD_PATH."images/", $content['image1']) : 'http://placehold.it/3000x1000' ?>" alt=""></div>
+                                <span><?=$content['sd_1']?></span>
                             </div>
                         </li>
                         <li>
                             <div class="inner">
-                                <div class="icon"><img src="<?= base_url() ?>assets/images/icon-phone.svg" alt=""></div>
-                                <a href="tel:+1-866-895-2008">+1-866-895-2008</a>
+                                <div class="icon"><img src="<?= !empty($content['image2']) ? getImageSrc(UPLOAD_PATH."images/", $content['image2']) : 'http://placehold.it/3000x1000' ?>" alt=""></div>
+                                <a href="tel:<?=$content['sd_2']?>"><?=$content['sd_2']?></a>
                             </div>
                         </li>
                          <li>
                             <div class="inner">
-                                <div class="icon"><img src="<?= base_url() ?>assets/images/icon-envelope-fill.svg" alt=""></div>
-                                <a href="mailto:info@CreativeCommercialGroup.com">info@CreativeCommercialGroup.com</a>
+                                <div class="icon"><img src="<?= !empty($content['image3']) ? getImageSrc(UPLOAD_PATH."images/", $content['image3']) : 'http://placehold.it/3000x1000' ?>" alt=""></div>
+                                <a href="mailto:<?=$content['sd_3']?>"><?=$content['sd_3']?></a>
                             </div>
                         </li>
                 </ul>
                 <form action="" method="post" id="frmContact" class="frmAjax">
-                    <h2 class="heading text-center">START CONVERSATION</h2>
+                    <h2 class="heading text-center"><?=$content['heading3']?></h2>
                     <div class="alertMsg" style="display:none"></div>
                     <div class="row formRow">
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 col-xx-6">
