@@ -46,18 +46,20 @@ class Sitecontent extends Admin_Controller
         $this->load->view(ADMIN . '/includes/siteMaster', $this->data);
     }
 
-    public function landing()
+
+    public function about()
     {
         $this->data['enable_editor'] = TRUE;
-        $this->data['pageView'] = ADMIN . '/site_landing';
+        $this->data['pageView'] = ADMIN . '/site_about';
         if ($vals = $this->input->post()) {
-            $content_row = $this->master->getRow($this->table_name, array('ckey' => 'landing'));
+            
+            $content_row = $this->master->getRow($this->table_name, array('ckey' => 'about_us'));
             $content_row = unserialize($content_row->code);
-
+            
             if(!is_array($content_row))
                 $content_row = array();
-
-            for($i = 1; $i <= 13; $i++) {
+               
+            for($i = 1; $i <= 1; $i++) {
                 if (isset($_FILES["image".$i]["name"]) && $_FILES["image".$i]["name"] != "") {
                     
                     $image = upload_file(UPLOAD_PATH.'images/', 'image'.$i);
@@ -72,53 +74,90 @@ class Sitecontent extends Admin_Controller
             }
 
             $data = serialize(array_merge($content_row, $vals));
-            $this->master->save($this->table_name,array('code' => $data),'ckey', 'landing');
-            setMsg('success', 'Settings updated successfully !');
-            redirect(ADMIN . "/sitecontent/landing");
+            $this->master->save($this->table_name,array('code' => $data),'ckey', 'about_us');
+            setMsg('success', 'About Us Content updated successfully !');
+            redirect(ADMIN . "/sitecontent/about");
             exit;
         }
 
-        $this->data['row'] = $this->master->getRow($this->table_name, array('ckey' => 'landing'));
+        $this->data['row'] = $this->master->getRow($this->table_name, array('ckey' => 'about_us'));
         $this->data['row'] = unserialize($this->data['row']->code);
         $this->load->view(ADMIN . '/includes/siteMaster', $this->data);
     }
-    public function trade()
+
+    public function loan_programs()
     {
         $this->data['enable_editor'] = TRUE;
-        $this->data['pageView'] = ADMIN . '/site_trade';
+        $this->data['pageView'] = ADMIN . '/site_loan';
         if ($vals = $this->input->post()) {
-            $content_row = $this->master->getRow($this->table_name, array('ckey' => 'trade'));
+            $content_row = $this->master->getRow($this->table_name, array('ckey' => 'loan_programs'));
             $content_row = unserialize($content_row->code);
 
             if(!is_array($content_row))
                 $content_row = array();
 
-            for($i = 1; $i <= 3; $i++) {
-                if (isset($_FILES["second_image".$i]["name"]) && $_FILES["second_image".$i]["name"] != "") {
-                    $image = upload_file(UPLOAD_PATH.'images/', 'second_image'.$i);
+            for($i = 1; $i <= 4; $i++) {
+                if (isset($_FILES["image".$i]["name"]) && $_FILES["image".$i]["name"] != "") {
+                    
+                    $image = upload_file(UPLOAD_PATH.'images/', 'image'.$i);
+                    generate_thumb(UPLOAD_PATH.'images/',UPLOAD_PATH.'images/',$image['file_name'],600,'thumb_');
                     if(!empty($image['file_name'])){
-                        $vals['second_image'.$i] = $image['file_name'];
-                        if (isset($content_row['second_image'.$i]))
-                            $this->remove_file(UPLOAD_PATH."images/".$content_row['second_image'.$i]);
+                        if(isset($content_row['image'.$i]))
+                            $this->remove_file(UPLOAD_PATH."images/".$content_row['image'.$i]);
+                            $this->remove_file(UPLOAD_PATH."images/thumb_".$content_row['image'.$i]);
+                        $vals['image'.$i] = $image['file_name'];
                     }
                 }
             }
 
             $data = serialize(array_merge($content_row, $vals));
-            $this->master->save($this->table_name,array('code' => $data),'ckey', 'trade');
-            setMsg('success', 'Settings updated successfully !');
-            redirect(ADMIN . "/sitecontent/trade");
+            $this->master->save($this->table_name,array('code' => $data),'ckey', 'loan_programs');
+            setMsg('success', 'Loan Programs updated successfully !');
+            redirect(ADMIN . "/sitecontent/loan_programs");
             exit;
         }
 
-        $this->data['row'] = $this->master->getRow($this->table_name, array('ckey' => 'trade'));
+        $this->data['row'] = $this->master->getRow($this->table_name, array('ckey' => 'loan_programs'));
         $this->data['row'] = unserialize($this->data['row']->code);
         $this->load->view(ADMIN . '/includes/siteMaster', $this->data);
     }
-    public function promotions()
+    public function closed_loan()
     {
         $this->data['enable_editor'] = TRUE;
-        $this->data['pageView'] = ADMIN . '/site_promotions';
+        $this->data['pageView'] = ADMIN . '/site_closed_loan';
+        if ($vals = $this->input->post()) {
+            $content_row = $this->master->getRow($this->table_name, array('ckey' => 'closed_loan'));
+            $content_row = unserialize($content_row->code);
+
+            if(!is_array($content_row))
+                $content_row = array();
+
+            for($i = 1; $i <= 1; $i++) {
+                if (isset($_FILES["image".$i]["name"]) && $_FILES["image".$i]["name"] != "") {
+                    $image = upload_file(UPLOAD_PATH.'images/', 'image'.$i);
+                    if(!empty($image['file_name'])){
+                        $vals['image'.$i] = $image['file_name'];
+                        if (isset($content_row['image'.$i]))
+                            $this->remove_file(UPLOAD_PATH."images/".$content_row['image'.$i]);
+                    }
+                }
+            }
+
+            $data = serialize(array_merge($content_row, $vals));
+            $this->master->save($this->table_name,array('code' => $data),'ckey', 'closed_loan');
+            setMsg('success', 'Closed Loan updated successfully !');
+            redirect(ADMIN . "/sitecontent/closed_loan");
+            exit;
+        }
+
+        $this->data['row'] = $this->master->getRow($this->table_name, array('ckey' => 'closed_loan'));
+        $this->data['row'] = unserialize($this->data['row']->code);
+        $this->load->view(ADMIN . '/includes/siteMaster', $this->data);
+    }
+    public function forms()
+    {
+        $this->data['enable_editor'] = TRUE;
+        $this->data['pageView'] = ADMIN . '/site_forms';
         if ($vals = $this->input->post()) {
             $content_row = $this->master->getRow($this->table_name, array('ckey'=>'promotions'));
             $content_row = unserialize($content_row->code);
