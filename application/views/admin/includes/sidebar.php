@@ -63,6 +63,12 @@
                             <span class="title">Mortage Types</span>
                         </a>
                     </li>
+                    <li class=" <?= ($this->uri->segment(3) == 'loan_process') ? ' active' : '' ?>">
+                        <a href="<?= site_url(ADMIN.'/sitecontent/loan_process') ?>">
+                            <i class="entypo-doc-text  "></i>
+                            <span class="title">Loan Process</span>
+                        </a>
+                    </li>
                     <li class=" <?= ($this->uri->segment(3) == 'key_concepts') ? ' active' : '' ?>">
                         <a href="<?= site_url(ADMIN.'/sitecontent/key_concepts') ?>">
                             <i class="entypo-doc-text  "></i>

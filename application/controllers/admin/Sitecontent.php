@@ -293,6 +293,57 @@ class Sitecontent extends Admin_Controller
         $this->load->view(ADMIN . '/includes/siteMaster', $this->data);
     }
 
+    public function loan_process()
+    {
+        $this->data['enable_editor'] = TRUE;
+        $this->data['pageView'] = ADMIN . '/site_loan_process';
+        if ($vals = $this->input->post()) {
+            $content_row = $this->master->getRow($this->table_name, array('ckey' => 'loan_process'));
+            $content_row = unserialize($content_row->code);
+
+            if(!is_array($content_row))
+                $content_row = array();
+            
+            for($i = 1; $i <= 2; $i++) {
+                if (isset($_FILES["image".$i]["name"]) && $_FILES["image".$i]["name"] != "") {
+                    
+                    $image = upload_file(UPLOAD_PATH.'images/', 'image'.$i);
+                    generate_thumb(UPLOAD_PATH.'images/',UPLOAD_PATH.'images/',$image['file_name'],600,'thumb_');
+                    if(!empty($image['file_name'])){
+                        if(isset($content_row['image'.$i]))
+                            $this->remove_file(UPLOAD_PATH."images/".$content_row['image'.$i]);
+                            $this->remove_file(UPLOAD_PATH."images/thumb_".$content_row['image'.$i]);
+                        $vals['image'.$i] = $image['file_name'];
+                    }
+                }
+            }
+
+            for($i = 1; $i <= 4; $i++) {
+                if (isset($_FILES["olp_card_image".$i]["name"]) && $_FILES["olp_card_image".$i]["name"] != "") {
+                    
+                    $image = upload_file(UPLOAD_PATH.'images/', 'olp_card_image'.$i);
+                    generate_thumb(UPLOAD_PATH.'images/',UPLOAD_PATH.'images/',$image['file_name'],600,'thumb_');
+                    if(!empty($image['file_name'])){
+                        if(isset($content_row['olp_card_image'.$i]))
+                            $this->remove_file(UPLOAD_PATH."images/".$content_row['olp_card_image'.$i]);
+                            $this->remove_file(UPLOAD_PATH."images/thumb_".$content_row['olp_card_image'.$i]);
+                        $vals['olp_card_image'.$i] = $image['file_name'];
+                    }
+                }
+            }
+
+            $data = serialize(array_merge($content_row, $vals));
+            $this->master->save($this->table_name,array('code' => $data),'ckey', 'loan_process');
+            setMsg('success', 'Settings updated successfully !');
+            redirect(ADMIN . "/sitecontent/loan_process");
+            exit;
+        }
+
+        $this->data['row'] = $this->master->getRow($this->table_name, array('ckey' => 'loan_process'));
+        $this->data['row'] = unserialize($this->data['row']->code);
+        $this->load->view(ADMIN . '/includes/siteMaster', $this->data);
+    }  
+
     public function closed_loan()
     {
         $this->data['enable_editor'] = TRUE;
@@ -485,17 +536,17 @@ class Sitecontent extends Admin_Controller
             $content_row = unserialize($content_row->code);
             if(!is_array($content_row))
                 $content_row = array();
-            // for($i = 1; $i <= 1; $i++) {
-            //     if (isset($_FILES["image".$i]["name"]) && $_FILES["image".$i]["name"] != "") {
+            for($i = 1; $i <= 3; $i++) {
+                if (isset($_FILES["image".$i]["name"]) && $_FILES["image".$i]["name"] != "") {
                     
-            //         $image = upload_file(UPLOAD_PATH.'images/', 'image'.$i);
-            //         if(!empty($image['file_name'])){
-            //             if(isset($content_row['image'.$i]))
-            //                 $this->remove_file(UPLOAD_PATH."images/".$content_row['image'.$i]);
-            //             $vals['image'.$i] = $image['file_name'];
-            //         }
-            //     }
-            // }
+                    $image = upload_file(UPLOAD_PATH.'images/', 'image'.$i);
+                    if(!empty($image['file_name'])){
+                        if(isset($content_row['image'.$i]))
+                            $this->remove_file(UPLOAD_PATH."images/".$content_row['image'.$i]);
+                        $vals['image'.$i] = $image['file_name'];
+                    }
+                }
+            }
             $data = serialize(array_merge($content_row,$vals));
             $this->master->save($this->table_name, array('code' => $data), 'ckey', 'contact');
             setMsg('success', 'Settings updated successfully !');
