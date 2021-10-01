@@ -6,7 +6,13 @@ class Pages extends MY_Controller
         parent::__construct();
         $this->load->model('Pages_model','page');
     }
-    
+    function index()
+    {
+        $content_row = $this->master->getRow('sitecontent', array('ckey'=>'footer'));
+        $content_row = json_decode(json_encode(unserialize($content_row->code)));
+        $this->data['footer'] = $content_row;
+        $this->load->view('pages/index', $this->data);
+    }
     function about_us()
     {
         $this->load->view('pages/about', $this->data);

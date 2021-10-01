@@ -2,7 +2,7 @@
     <div class="inside">
         <div class="contain">
             <div class="upside">
-                <h3>Subscribe with us<span>To Get Regular updates on events, conferences, workshops, trainings and monthly reports on institutions, please subscribe with us.</span></h3>
+                <h3><?=$footer->footer_heading?><span><?=$footer->footer_text1?></span></h3>
                 <form action="<?=base_url()?>newsletter" method="post" id="newsletterFrm" class="frmAjax">
                     <label for="email">Stay up to date with the latest news and deals!</label>
                     <div class="alertMsg" style="display:none"></div>
@@ -15,12 +15,12 @@
             <div class="flexRow flex">
                 <div class="col col1">
                     <div class="image scuLogo"><img src="images/logo1.png" alt=""></div>
-                    <p>we are here to solve your problems. Either you are looking to sale or managing your properties. TP Partners in Property will guarantee you a quality service.!</p>
+                    <?=$footer->footer_text2?>
                 </div>
                 <div class="col col2">
                     <h3>Company</h3>
                     <ul class="lst">
-                        <li><a href="<?= base_url() ?>">Home</a></li>
+                        <li><a href="<?= base_url() ?>index">Home</a></li>
                         <li><a href="<?= base_url() ?>about-us">About Us</a></li>
                         <li><a href="<?= base_url() ?>loan-programs">Loan Programs</a></li>
                         <li><a href="<?= base_url() ?>rate-calculator">Rate Calculator</a></li>
