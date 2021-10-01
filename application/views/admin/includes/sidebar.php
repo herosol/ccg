@@ -81,12 +81,46 @@
                             <span class="title">Qualification</span>
                         </a>
                     </li>
-                    <li class=" <?= ($this->uri->segment(3) == 'about') ? ' active' : '' ?>">
-                        <a href="<?= site_url(ADMIN.'/sitecontent/promotions') ?>">
+                    <li class="<?= ($this->uri->segment(3) == 'about') ? ' active' : '' ?>">
+                        <a href="javascript:void(0)">
+                        <i class="entypo-doc-text  "></i>
+                            <span class="title">About Us</span>
+                        </a>
+                        <ul>
+                            <li class=" <?= ($this->uri->segment(3) == 'about') ? ' active' : '' ?>">
+                                <a href="<?= site_url(ADMIN.'/sitecontent/about') ?>">
+                                    <i class="entypo-doc-text  "></i>
+                                    <span class="title">About Us Page Content</span>
+                                </a>
+                            </li>
+                            <li class=" <?= ($this->uri->segment(3) == 'about') ? ' active' : '' ?>">
+                                <a href="<?= site_url(ADMIN.'/team') ?>">
+                                    <i class="entypo-doc-text  "></i>
+                                    <span class="title">About Us Team</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class=" <?= ($this->uri->segment(3) == 'loan_programs') ? ' active' : '' ?>">
+                        <a href="<?= site_url(ADMIN.'/sitecontent/loan_programs') ?>">
                             <i class="entypo-doc-text  "></i>
-                            <span class="title">Promotions</span>
+                            <span class="title">Loan Programs</span>
                         </a>
                     </li>
+                    <li class=" <?= ($this->uri->segment(3) == 'closed_loan') ? ' active' : '' ?>">
+                        <a href="<?= site_url(ADMIN.'/sitecontent/closed_loan') ?>">
+                            <i class="entypo-doc-text  "></i>
+                            <span class="title">Closed Loan</span>
+                        </a>
+                    </li>
+
+                    <li class=" <?= ($this->uri->segment(3) == 'forms') ? ' active' : '' ?>">
+                        <a href="<?= site_url(ADMIN.'/sitecontent/forms') ?>">
+                            <i class="entypo-doc-text  "></i>
+                            <span class="title">Forms Page</span>
+                        </a>
+                    </li>
+
                     <li class=" <?= ($this->uri->segment(3) == 'contact') ? ' active' : '' ?>">
                         <a href="<?= site_url(ADMIN.'/sitecontent/contact') ?>">
                             <i class="entypo-doc-text  "></i>
@@ -103,48 +137,6 @@
                         <a href="<?= site_url(ADMIN.'/sitecontent/terms_conditions') ?>">
                             <i class="entypo-doc-text  "></i>
                             <span class="title">Terms & Conditions</span>
-                        </a>
-                    </li>
-                    <li class=" <?= ($this->uri->segment(3) == 'privacy_policy') ? ' active' : '' ?>">
-                        <a href="<?= site_url(ADMIN.'/sitecontent/privacy_policy') ?>">
-                            <i class="entypo-doc-text  "></i>
-                            <span class="title">Privacy Policy</span>
-                        </a>
-                    </li>
-                    <li class=" <?= ($this->uri->segment(3) == 'service_selection') ? ' active' : '' ?>">
-                        <a href="<?= site_url(ADMIN.'/sitecontent/service_selection') ?>">
-                            <i class="entypo-doc-text  "></i>
-                            <span class="title">Service Selection</span>
-                        </a>
-                    </li>
-                    <li class=" <?= ($this->uri->segment(3) == 'available_vendors') ? ' active' : '' ?>">
-                        <a href="<?= site_url(ADMIN.'/sitecontent/available_vendors') ?>">
-                            <i class="entypo-doc-text  "></i>
-                            <span class="title">Available Vendors</span>
-                        </a>
-                    </li>
-                    <li class=" <?= ($this->uri->segment(3) == 'vendor_detail') ? ' active' : '' ?>">
-                        <a href="<?= site_url(ADMIN.'/sitecontent/vendor_detail') ?>">
-                            <i class="entypo-doc-text  "></i>
-                            <span class="title">Vendor Detail</span>
-                        </a>
-                    </li>
-                    <li class=" <?= ($this->uri->segment(3) == 'booking') ? ' active' : '' ?>">
-                        <a href="<?= site_url(ADMIN.'/sitecontent/booking') ?>">
-                            <i class="entypo-doc-text  "></i>
-                            <span class="title">Booking</span>
-                        </a>
-                    </li>
-                    <li class=" <?= ($this->uri->segment(3) == 'signin') ? ' active' : '' ?>">
-                        <a href="<?= site_url(ADMIN.'/sitecontent/signin') ?>">
-                            <i class="entypo-doc-text  "></i>
-                            <span class="title">Sign In</span>
-                        </a>
-                    </li>
-                    <li class=" <?= ($this->uri->segment(3) == 'signup') ? ' active' : '' ?>">
-                        <a href="<?= site_url(ADMIN.'/sitecontent/signup') ?>">
-                            <i class="entypo-doc-text  "></i>
-                            <span class="title">Sign Up</span>
                         </a>
                     </li>
                 </ul>
