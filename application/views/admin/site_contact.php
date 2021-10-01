@@ -38,8 +38,8 @@
                     <div class="col-md-12">
                         <div class="form-group">
                             <div class="col-md-12">
-                                <label for="heading" class="control-label"> Heading <span class="symbol required">*</span></label>
-                                <input type="text" name="heading" id="heading" value="<?= $row['heading'] ?>" class="form-control" required>
+                                <label for="heading1" class="control-label"> Heading <span class="symbol required">*</span></label>
+                                <input type="text" name="heading1" id="heading1" value="<?= $row['heading1'] ?>" class="form-control" required>
                             </div>
                         </div>
                     </div>
@@ -157,6 +157,20 @@
                         <div class="col-md-12">
                             <label class="control-label"> Short Description 3 <span class="symbol required">*</span></label>
                             <input type="text" name="sd_3" value="<?= $row['sd_3']?>" class="form-control">
+                        </div>
+                    </div>
+                </div>
+                
+                <h3>Form Heading</h3>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <div class="col-md-12">
+                                    <label for="heading3" class="control-label"> Heading <span class="symbol required">*</span></label>
+                                    <input type="text" name="heading3" id="heading3" value="<?= $row['heading3'] ?>" class="form-control" required>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

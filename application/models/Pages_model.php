@@ -44,7 +44,8 @@
  			 return $this->db->get($this->table_name)->result();
  		}
  	}
- 	 function getMetaContent($page_slug=""){
+	 
+ 	function getMetaContent($page_slug=""){
  		if($page_slug != ""){
  			$this->db->where("slug",$page_slug);
  			return $this->db->get('meta_info')->row();
@@ -53,6 +54,7 @@
  			 return $this->db->get('meta_info')->result();
  		}
  	}
+
  	function deletePage($page_slug=""){
  		$this->where("ckey",$page_slug);
  		$this->db->delete($this->table_name);

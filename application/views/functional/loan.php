@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Our Loan Programs — CCG</title>
+    <title><?=$page_title?> — <?=$site_settings->site_name?></title>
     <?php $this->load->view('includes/site-master'); ?>
 </head>
 
@@ -14,7 +14,7 @@
         <section id="sBanner" style="background-image: url('<?= base_url() ?>assets/images/3q.jpg');">
             <div class="contain">
                 <div class="content">
-                    <h1>Loan Programs</h1>
+                    <h1><?=$content['banner_heading']?></h1>
                 </div>
             </div>
         </section>
@@ -23,14 +23,13 @@
             <div class="contain">
                 <div class="flexRow flex">
                     <div class="col col1">
-                        <div class="image"><img src="<?= base_url() ?>assets/images/loan1.jpg" alt=""></div>
+                        <div class="image"><img src="<?= !empty($content['image1']) ? getImageSrc(UPLOAD_PATH."images/", $content['image1']) : 'http://placehold.it/3000x1000' ?>" alt=""></div>
                     </div>
                     <div class="col col2">
                         <div class="content">
-                            <h1 class="heading">Our Loan Programs</h1>
-                            <p>Commercial real estate properties are financed by a variety of mortgage lenders. Each lender type has their own general box for the types of deals where they are usually a proper fit, and within each lender type – each individual lender has their own unique program parameters, requirements, and appetite.</p>
-                            <p>As the market changes, so do the lending programs for each individual lender and is something that is constantly in flux. We competitive individual lenders and consistently tracks changes to their programs as well as new lenders entering the market. Navigating this terrain can be difficult for a variety of reasons – but there are some general rules of thumb a borrower.</p>
-                            <div class="bTn"><a href="contact.php" class="webBtn">Contact Now <i class="fi-arrow-right"></i></a></div>
+                            <h1 class="heading"><?=$content['sec2_heading']?></h1>
+                                <?=$content['sec2_desc']?>
+                            <div class="bTn"><a href="<?=base_url($content['sec2_btn_link'])?>" class="webBtn"><?=$content['sec2_btn_text']?> <i class="fi-arrow-right"></i></a></div>
                         </div>
                     </div>
                 </div>
@@ -41,55 +40,43 @@
             <div class="flex">
                     <div class="col">
                         <div class="image">
-                            <img src="<?= base_url() ?>assets/images/11.jpg">
+                            <img src="<?= !empty($content['image2']) ? getImageSrc(UPLOAD_PATH."images/", $content['image2']) : 'http://placehold.it/3000x1000' ?>">
                         </div>
                         <div class="cntnt">
                             <div class="cmnHeading">
-                                <h2 class="heading">MULTIFAMILY LENDING</h2>
+                                <h2 class="heading"><?=$content['sec3_left_heading']?></h2>
                                     <ul>                         
-                                        <li>West Coast & Nationwide Programs</li>
-                                        <li>Maximum 80% Loan-to-Value (LTV)</li>
-                                        <li>Nationwide Lending $1,000,000+</li>
-                                        <li>California Lending $500,000+</li>
-                                        <li>Competitive & Flexible Programs</li>
+                                        <?=$content['sec3_left_lis']?>
                                     </ul>
-                                <div class="bTn"><a href="lending-detail.php" class="webBtn blankBtn">View Details</a></div>
+                                <div class="bTn"><a href="<?=base_url($content['sec3_left_btn_link'])?>" class="webBtn blankBtn"><?=$content['sec3_left_btn_text']?></a></div>
                             </div>
                         </div>
                     </div>
                     <div class="col">
                         <div class="image">
-                            <img src="<?= base_url() ?>assets/images/13.jpg">
+                            <img src="<?= !empty($content['image3']) ? getImageSrc(UPLOAD_PATH."images/", $content['image3']) : 'http://placehold.it/3000x1000' ?>">
                         </div>
                         <div class="cntnt">
                             <div class="cmnHeading">
-                                <h2 class="heading">OWNER-USER LENDING</h2>
+                                <h2 class="heading"><?=$content['sec3_middle_heading']?></h2>
                                     <ul>                         
-                                        <li>West Coast & Nationwide Programs</li>
-                                        <li>Maximum 80% Loan-to-Value (LTV)</li>
-                                        <li>Nationwide Lending $1,000,000+</li>
-                                        <li>California Lending $500,000+</li>
-                                        <li>Competitive & Flexible Programs</li>
+                                        <?=$content['sec3_middle_lis']?>
                                     </ul>
-                                    <div class="bTn"><a href="lending-detail.php" class="webBtn blankBtn">View Details</a></div>
+                                <div class="bTn"><a href="<?=base_url($content['sec3_middle_btn_link'])?>" class="webBtn blankBtn"><?=$content['sec3_middle_btn_text']?></a></div>
                             </div>
                         </div>
                     </div>
                     <div class="col">
                         <div class="image">
-                            <img src="<?= base_url() ?>assets/images/12.jpg">
+                            <img src="<?= !empty($content['image4']) ? getImageSrc(UPLOAD_PATH."images/", $content['image4']) : 'http://placehold.it/3000x1000' ?>">
                         </div>
                         <div class="cntnt">
                             <div class="cmnHeading">
-                                <h2 class="heading">COMMERCIAL LENDING</h2>
+                                <h2 class="heading"><?=$content['sec3_right_heading']?></h2>
                                     <ul>                         
-                                        <li>West Coast & Nationwide Programs</li>
-                                        <li>Maximum 80% Loan-to-Value (LTV)</li>
-                                        <li>Nationwide Lending $1,000,000+</li>
-                                        <li>California Lending $500,000+</li>
-                                        <li>Competitive & Flexible Programs</li>
+                                        <?=$content['sec3_right_lis']?>
                                     </ul>
-                                    <div class="bTn"><a href="lending-detail.php" class="webBtn blankBtn">View Details</a></div>
+                                <div class="bTn"><a href="<?=base_url($content['sec3_right_btn_link'])?>" class="webBtn blankBtn"><?=$content['sec3_right_btn_text']?></a></div>
                             </div>
                         </div>
                     </div>
@@ -102,36 +89,18 @@
                         <div class="flex">
                             <div class="col">
                                 <div class="inner">
-                                    <!-- <div class="_small-icon">
-                                        <img src="<?= base_url() ?>assets/images/home1.png">
-                                    </div> -->
-                                    <h4>Lender Partners</h4>
+                                    <h4><?=$content['sec4_left_heading']?></h4>
                                     <ul>                         
-                                        <li>Banking Institutions</li>
-                                        <li>CMBS Conduit Lenders</li>
-                                        <li>Life Insurance Companies</li>
-                                        <li>Fannie Mae, Freddie Mac, FHA</li>
-                                        <li>SBA Small Business Loans</li>
-                                        <li>Private Individual Investors</li>
-                                        <li>Marketplace Crowdfunding</li>
+                                        <?=$content['sec4_left_lis']?>
                                     </ul>
                                 </div>
                             </div>
 
                             <div class="col">
                                 <div class="inner">
-                                    <!-- <div class="_small-icon">
-                                        <img src="<?= base_url() ?>assets/images/apartment.png">
-                                    </div> -->
-                                    <h4>Property Types</h4>
+                                    <h4><?=$content['sec4_middle_heading']?></h4>
                                     <ul>                         
-                                        <li>Banking Institutions</li>
-                                        <li>CMBS Conduit Lenders</li>
-                                        <li>Life Insurance Companies</li>
-                                        <li>Fannie Mae, Freddie Mac, FHA</li>
-                                        <li>SBA Small Business Loans</li>
-                                        <li>Private Individual Investors</li>
-                                        <li>Marketplace Crowdfunding</li>
+                                        <?=$content['sec4_middle_lis']?>
                                     </ul>
                                 </div>
 
@@ -139,18 +108,9 @@
 
                             <div class="col">
                                 <div class="inner">
-                                    <!-- <div class="_small-icon">
-                                        <img src="<?= base_url() ?>assets/images/town.png">
-                                    </div> -->
-                                    <h4>Transaction Types</h4>
+                                    <h4><?=$content['sec4_right_heading']?></h4>
                                     <ul>                         
-                                        <li>Banking Institutions</li>
-                                        <li>CMBS Conduit Lenders</li>
-                                        <li>Life Insurance Companies</li>
-                                        <li>Fannie Mae, Freddie Mac, FHA</li>
-                                        <li>SBA Small Business Loans</li>
-                                        <li>Private Individual Investors</li>
-                                        <li>Marketplace Crowdfunding</li>
+                                        <?=$content['sec4_right_lis']?>
                                     </ul>
                                 </div>
                             </div>

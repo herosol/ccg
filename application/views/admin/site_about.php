@@ -111,7 +111,7 @@
                             </div>
                             <div class="col-md-6">
                                 <label for="ccs_detai" class="control-label">Detail<span class="symbol required">*</span></label>
-                                <textarea name="sec2_desc" rows="3" class="form-control ckeditor" required=""><?= $row['sec2_desc'] ?></textarea>
+                                <textarea name="sec3_desc" rows="3" class="form-control ckeditor" required=""><?= $row['sec3_desc'] ?></textarea>
                             </div>
                             <div class="col-md-6">
                                 <label for="detail" class="control-label "> Button Text<span class="symbol required">*</span></label>
