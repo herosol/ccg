@@ -69,12 +69,6 @@
                             <span class="title">Key Concepts</span>
                         </a>
                     </li>
-                    <li class=" <?= ($this->uri->segment(3) == 'loan_process') ? ' active' : '' ?>">
-                        <a href="<?= site_url(ADMIN.'/sitecontent/loan_process') ?>">
-                            <i class="entypo-doc-text  "></i>
-                            <span class="title">Loan Process</span>
-                        </a>
-                    </li>
                     <li class=" <?= ($this->uri->segment(3) == 'qualification') ? ' active' : '' ?>">
                         <a href="<?= site_url(ADMIN.'/sitecontent/qualification') ?>">
                             <i class="entypo-doc-text  "></i>
