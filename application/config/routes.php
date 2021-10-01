@@ -62,6 +62,7 @@ $route['admin/meta-info/manage/(:any)'] = 'admin/Meta_info/manage/$1';
 $route['admin/meta-info/delete/(:any)'] = 'admin/Meta_info/delete/$1';
 
 ##FRONT PAGES
+$route['index']            = 'pages/index';
 $route['about-us']         = 'pages/about_us';
 $route['loan-programs']    = 'pages/load_programs';
 $route['rate-calculator']  = 'pages/rate_calculator';

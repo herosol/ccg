@@ -331,7 +331,7 @@ class Sitecontent extends Admin_Controller
         $this->data['enable_editor'] = TRUE;
         $this->data['pageView'] = ADMIN . '/site_forms';
         if ($vals = $this->input->post()) {
-            $content_row = $this->master->getRow($this->table_name, array('ckey'=>'promotions'));
+            $content_row = $this->master->getRow($this->table_name, array('ckey'=>'forms'));
             $content_row = unserialize($content_row->code);
             if(!is_array($content_row))
                 $content_row = array();
@@ -347,12 +347,62 @@ class Sitecontent extends Admin_Controller
                 }
             }
             $data = serialize(array_merge($content_row, $vals));
-            $this->master->save($this->table_name,array('code'=>$data),'ckey','promotions');
-            setMsg('success', 'Promotions and Offers Page Updated Successfully !');
-            redirect(ADMIN . "/sitecontent/promotions");
+            $this->master->save($this->table_name,array('code'=>$data),'ckey','forms');
+            setMsg('success', 'Forms Page Updated Successfully !');
+            redirect(ADMIN . "/sitecontent/forms");
         }
 
-        $this->data['content'] = $this->master->getRow($this->table_name, array('ckey' => 'promotions'));
+        $this->data['content'] = $this->master->getRow($this->table_name, array('ckey' => 'forms'));
+        $this->data['row'] =unserialize($this->data['content']->code);
+        $this->load->view(ADMIN . '/includes/siteMaster', $this->data);
+    }
+    public function rate_calculator()
+    {
+        $this->data['enable_editor'] = TRUE;
+        $this->data['pageView'] = ADMIN . '/site_rate_calculator';
+        if ($vals = $this->input->post()) {
+            $content_row = $this->master->getRow($this->table_name, array('ckey'=>'rate_calculator'));
+            $content_row = unserialize($content_row->code);
+            if(!is_array($content_row))
+                $content_row = array();
+            for($i = 1; $i <= 1; $i++) {
+                if (isset($_FILES["image".$i]["name"]) && $_FILES["image".$i]["name"] != "") {
+                    
+                    $image = upload_file(UPLOAD_PATH.'images/', 'image'.$i);
+                    if(!empty($image['file_name'])){
+                        if(isset($content_row['image'.$i]))
+                            $this->remove_file(UPLOAD_PATH."images/".$content_row['image'.$i]);
+                        $vals['image'.$i] = $image['file_name'];
+                    }
+                }
+            }
+            $data = serialize(array_merge($content_row, $vals));
+            $this->master->save($this->table_name,array('code'=>$data),'ckey','rate_calculator');
+            setMsg('success', 'Rate Calculator Page Updated Successfully !');
+            redirect(ADMIN . "/sitecontent/rate_calculator");
+        }
+
+        $this->data['content'] = $this->master->getRow($this->table_name, array('ckey' => 'rate_calculator'));
+        $this->data['row'] =unserialize($this->data['content']->code);
+        $this->load->view(ADMIN . '/includes/siteMaster', $this->data);
+    }
+    public function footer()
+    {
+        $this->data['enable_editor'] = TRUE;
+        $this->data['pageView'] = ADMIN . '/site_footer';
+        if ($vals = $this->input->post()) {
+            $content_row = $this->master->getRow($this->table_name, array('ckey'=>'footer'));
+            $content_row = unserialize($content_row->code);
+            if(!is_array($content_row))
+                $content_row = array();
+            
+            $data = serialize(array_merge($content_row, $vals));
+            $this->master->save($this->table_name,array('code'=>$data),'ckey','footer');
+            setMsg('success', 'Footer Updated Successfully !');
+            redirect(ADMIN . "/sitecontent/footer");
+        }
+
+        $this->data['content'] = $this->master->getRow($this->table_name, array('ckey' => 'footer'));
         $this->data['row'] =unserialize($this->data['content']->code);
         $this->load->view(ADMIN . '/includes/siteMaster', $this->data);
     }

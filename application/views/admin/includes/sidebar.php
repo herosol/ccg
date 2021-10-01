@@ -114,6 +114,12 @@
                             <span class="title">Forms Page</span>
                         </a>
                     </li>
+                    <li class=" <?= ($this->uri->segment(3) == 'rate_calculator') ? ' active' : '' ?>">
+                        <a href="<?= site_url(ADMIN.'/sitecontent/rate_calculator') ?>">
+                            <i class="entypo-doc-text  "></i>
+                            <span class="title">Rate Calculator Page</span>
+                        </a>
+                    </li>
 
                     <li class=" <?= ($this->uri->segment(3) == 'contact') ? ' active' : '' ?>">
                         <a href="<?= site_url(ADMIN.'/sitecontent/contact') ?>">
@@ -145,6 +151,12 @@
                 <a href="<?= site_url(ADMIN.'/settings') ?>">
                     <i class="fa fa-cogs"></i>
                     <span class="title">Site Settings</span>
+                </a>
+            </li>
+            <li class="opened <?= ($this->uri->segment(2) == 'footer') ? 'active' : '' ?>">
+                <a href="<?= site_url(ADMIN.'/sitecontent/footer') ?>">
+                <i class="fa fa-bars" aria-hidden="true"></i>
+                    <span class="title">Footer</span>
                 </a>
             </li>
             <li class="opened">
